@@ -2,22 +2,54 @@
 import { Image } from "astro:assets";
 import pfp from "../../../assets/pfp.jpeg";
 
-import { getLangFromUrl, useTranslation, type Language } from "../../../config";
+import { getLangFromUrl, useTranslation } from "../../../config";
+import { CONTACTS } from "../../../assets/data";
 
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 
-const circleClass =
-  "block w-2 h-2 rounded-full hover:opacity-60 duration-500 transition-all cursor-pointer";
+const circleClass = `
+  block w-2 h-2 rounded-full
+  hover:opacity-60 duration-500
+  transition-all cursor-pointer
+`;
+
+const contactClasses = {
+  anchor: `
+    cursor-pointer flex flex-row
+    gap-4 items-center justify-center
+    px-4 py-1 border flex-1
+    border-green group
+    
+    active:bg-green
+    focus:bg-green
+    hover:bg-green
+
+    active:text-crust
+    focus:text-crust
+    hover:text-crust
+
+    duration-500 transition-all
+  `,
+  preffix: `
+    text-crust
+    max-w-0 overflow-hidden
+    duration-500 transition-all
+    group-active:max-w-8
+    group-focus:max-w-8
+    group-hover:max-w-8
+  `,
+  text: "group-hover:underline",
+};
 ---
 
 <div
   class={`
-        flex flex-row flex-wrap items-center
-        justify-center relative font-code 
-        text-green p-8
-        gap-12 bg-crust rounded-b-lg w-full
-      `}
+    flex flex-row flex-wrap items-center
+    justify-center relative font-code 
+    text-green p-8
+    gap-16 bg-crust rounded-b-lg w-full
+  `}
   id="title-card"
 >
   <span
@@ -52,6 +84,28 @@ const circleClass =
       <span id="preffix">{">"}</span>
       {t("home.titlecard.text")}
     </p>
+
+    <div class="flex flex-col gap-4 w-full">
+      <button class={contactClasses.anchor}>
+        <span class={contactClasses.preffix}>{"> "}</span>
+
+        <span class={contactClasses.text}>{t("Email lorem ipsum")}</span>
+
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+
+      <div class="flex flex-row flex-wrap items-center w-full gap-4">
+        {
+          CONTACTS.map(({ href, icon, label }) => (
+            <a class={contactClasses.anchor} href={href} target="_blank">
+              <span class={contactClasses.text}>{t(label)}</span>
+
+              <i class={icon} />
+            </a>
+          ))
+        }
+      </div>
+    </div>
 
     <span class="flex flex-row gap-2 items-center">
       <span id="preffix">{">"}</span>
