@@ -1,0 +1,72 @@
+---
+import { getAltUrl, getLangFromUrl, Language } from "../config";
+import { LANGUAGE_LABELS } from "../utils";
+
+const { url } = Astro;
+const [current] = getLangFromUrl(url);
+
+const langs = Object.entries(LANGUAGE_LABELS).filter(
+  ([lang]) => lang !== String(current)
+);
+---
+
+<div
+  class={`
+    p-2 bg-crust
+    fixed bottom-4 left-4
+    border border-mauve
+    group flex flex-col
+    items-center rounded-lg
+  `}
+>
+  <span class="flex flex-row gap-2 items-center">
+    <span class="text-green">
+      {"> "}
+    </span>
+
+    <span>
+      {LANGUAGE_LABELS[current]}
+    </span>
+  </span>
+
+  <div
+    class={`
+      cursor-pointer
+      flex flex-col gap-2
+      w-full max-h-0 overflow-hidden
+      group-active:max-h-24
+      group-focus:max-h-24
+      group-hover:max-h-24
+      group-target:max-h-24
+      duration-500 transition-all
+    `}
+  >
+    {
+      langs.map(([lang, label], i) => (
+        <a
+          class={`
+            ${i === 0 ? "mt-2" : ""}
+            border border-transparent
+            rounded-md px-2
+            hover:border-mauve
+          `}
+          data-lang={lang}
+          onclick="changeLanguage(this)"
+        >
+          {label}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script is:inline src="/script.js"></script>
+
+<script lang="js">
+  function changeLanguage(element) {
+    const { lang } = element.dataset;
+
+    console.log({ lang });
+    document.dispatchEvent(new CustomEvent("lang_change", { detail: lang }));
+  }
+</script>

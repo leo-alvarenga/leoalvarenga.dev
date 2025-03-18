@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/leoalvarenga_alt.svg";
+import { getAltUrl, getLangFromUrl, useTranslation } from "../config";
+import { NAVBAR_LINKS } from "../utils";
+
+const { url } = Astro;
+
+const [language, path] = getLangFromUrl(url);
+const { t } = useTranslation({ language });
+
+const commonClasses = "flex flex-row items-center";
+
+const getMenuItemClass = (active = false) => {
+  let classList = `
+    flex flex-row items-center
+    justify-center px-2
+    py-1 relative
+    transition-all duration-500 hover:opacity-60
+  `;
+
+  if (!active) {
+    return `${classList} pb-2 hover:text-mauve`;
+  }
+
+  return `${classList} text-mauve border-b-2 border-mauve`;
+};
+---
+
+<nav class={`w-full p-2 ${commonClasses} gap-4 justify-center overflow-hidden`}>
+  <div
+    class={`
+    ${commonClasses}
+    w-full md:w-[80vw] relative
+    gap-2 px-1.5 py-0.5 justify-center
+    transition-all duration-500
+  `}
+  >
+    <Image
+      alt="Leonardo Alvarenga"
+      class="pointer-events-none mr-2 pb-1"
+      height={36}
+      src={logo}
+    />
+
+    {
+      NAVBAR_LINKS.map(({ label, baseHref }) => (
+        <a
+          class={getMenuItemClass(path === baseHref)}
+          href={getAltUrl(url, language, baseHref)}
+        >
+          {t(label)}
+        </a>
+      ))
+    }
+  </div>
+</nav>

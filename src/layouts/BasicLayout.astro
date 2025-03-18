@@ -1,0 +1,31 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Layout from "./Layout.astro";
+import { pageTitleToId } from "../utils";
+import LanguageSelector from "../components/LanguageSelector.astro";
+
+interface Props {
+  className?: string;
+  disableNavbar?: boolean;
+  pageTitle?: string;
+}
+
+const { className = "", disableNavbar, pageTitle } = Astro.props;
+---
+
+<Layout pageTitle={pageTitle}>
+  {!disableNavbar && <Navbar />}
+
+  <main
+    class={`
+        flex flex-col gap-4 mx-auto ${disableNavbar ? "" : "mt-4 md:mt-8"}
+        w-full p-4 md:p-0 md:w-[90%] lg:w-[60%] relative items-center
+        font-quicksand ${className}
+    `}
+    id={pageTitleToId(pageTitle, "content")}
+  >
+    <slot />
+  </main>
+
+  <LanguageSelector />
+</Layout>

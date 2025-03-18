@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+
+import type { Language } from "../../config";
+import BasicLayout from "../../layouts/BasicLayout.astro";
+import { getRandomImage } from "../../utils";
+
+interface Props {
+  language?: Language;
+}
+
+const image = getRandomImage("NOT_FOUND");
+---
+
+<BasicLayout disableNavbar>
+  <h1>aa</h1>
+  <Image alt="Not found" src={image} width={346} />
+</BasicLayout>
