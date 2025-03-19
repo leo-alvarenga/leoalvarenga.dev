@@ -15,6 +15,11 @@ export const LANGUAGE_LABELS = {
   [Language.portugues]: "Português 🇧🇷",
 };
 
+export const LANGUAGE_HINTS = {
+  [Language.english]: "Switch to english",
+  [Language.portugues]: "Trocar para português",
+};
+
 export const STATUS_IMAGES = {
   ERROR: [errorTaken],
   IN_PROGRESS: [inProgress],

@@ -1,6 +1,6 @@
 ---
 import { getAltUrl, getLangFromUrl, Language } from "../config";
-import { LANGUAGE_LABELS } from "../utils";
+import { LANGUAGE_HINTS, LANGUAGE_LABELS } from "../utils";
 
 const { url } = Astro;
 const [current] = getLangFromUrl(url);
@@ -52,6 +52,7 @@ const langs = Object.entries(LANGUAGE_LABELS).filter(
           `}
           data-lang={lang}
           onclick="changeLanguage(this)"
+          title={LANGUAGE_HINTS[lang as Language]}
         >
           {label}
         </a>

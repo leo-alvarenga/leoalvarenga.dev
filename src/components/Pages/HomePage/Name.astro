@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+
 import pfp from "../../../assets/pfp.jpeg";
 
 import { getLangFromUrl, useTranslation } from "../../../config";
@@ -22,11 +23,9 @@ const contactClasses = {
     border-green group
     
     active:bg-green
-    focus:bg-green
     hover:bg-green
 
     active:text-crust
-    focus:text-crust
     hover:text-crust
 
     duration-500 transition-all
@@ -36,7 +35,6 @@ const contactClasses = {
     max-w-0 overflow-hidden
     duration-500 transition-all
     group-active:max-w-8
-    group-focus:max-w-8
     group-hover:max-w-8
   `,
   text: "group-hover:underline",
@@ -107,10 +105,18 @@ const contactClasses = {
       </div>
     </div>
 
-    <span class="flex flex-row gap-2 items-center">
+    <span class="flex flex-row items-center">
       <span id="preffix">{">"}</span>
 
-      <span class="w-2 h-4 bg-green block animate-blink"></span>
+      <a
+        class="cursor-pointer pl-2 duration-500 transition-all hover:underline"
+        download="leonardo_alvarenga_cv.pdf"
+        href={`/CV_${language}.pdf`}
+      >
+        download ./cv.pdf
+      </a>
+
+      <span class="w-2 h-5 bg-green block animate-blink"></span>
     </span>
   </hgroup>
 
