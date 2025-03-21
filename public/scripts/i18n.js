@@ -7,11 +7,19 @@ function isLangValid(lang) {
   return lang && Object.values(Language).includes(String(lang));
 }
 
+function getRegularPath(path) {
+  return path.startsWith("/") ? path : "/".concat(path);
+}
+
 function getLangFromUrl() {
   const [, lang, ...rest] = location?.pathname.split("/");
 
   const isDefault = lang !== Language.portugues;
-  const path = "".concat(isDefault ? lang : "", ...rest);
+
+  const path = "".concat(
+    isDefault ? lang : "",
+    ...rest.map((path) => "/".concat(path)),
+  );
 
   return [isDefault ? Language.english : Language.portugues, path];
 }
@@ -22,10 +30,10 @@ function getAltUrl(targetLanguage, path) {
   let resultPath = (path || currentPath).replaceAll(`/${lang}`, "");
 
   if (targetLanguage === Language.english) {
-    return resultPath || "/";
+    return getRegularPath(resultPath || "/");
   }
 
-  return `/${targetLanguage}`.concat(resultPath);
+  return `/${targetLanguage}`.concat(getRegularPath(resultPath) || "/");
 }
 
 function writeLangToLS(lang) {
@@ -58,14 +66,8 @@ function isCurrentLangCorrect() {
 }
 
 function sync() {
-  console.log(
-    getLangFromUrl(),
-    readPreferredLangFromLS(),
-    isCurrentLangCorrect(),
-  );
   if (isCurrentLangCorrect()) return;
 
-  console.log(getLangFromUrl(), readPreferredLangFromLS());
   window.location.href = getAltUrl(readPreferredLangFromLS());
 }
 
@@ -75,10 +77,7 @@ function load() {
     (event) => {
       const { detail } = event;
 
-      console.log({ detail }, readPreferredLangFromLS());
       writeLangToLS(detail);
-
-      console.log(readPreferredLangFromLS());
       sync();
     },
     false,

@@ -18,8 +18,8 @@ const getProjectActionClass = (disabled = false) => {
 
   if (disabled) {
     return base.concat(`
+      opacity-40
       cursor-not-allowed
-      opacity-60;
     `);
   }
 
@@ -84,7 +84,7 @@ const getProjectActionClass = (disabled = false) => {
 
             <div class="flex gap-4 items-center">
               <a
-                class={getProjectActionClass(!repo)}
+                class={getProjectActionClass(!repo.length)}
                 href={repo}
                 target="_blank"
               >
