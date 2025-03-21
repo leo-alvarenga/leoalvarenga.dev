@@ -1,6 +1,17 @@
 {
+  "commons.active": "Active",
+  "commons.archived": "Archived",
   "commons.empty": "Empty",
+  "commons.inactive": "Inactive",
   "commons.lorem": "Lorem ipsum dolor sit amet",
+  "commons.preview": "Preview",
+  "commons.repository": "Repository",
+  "commons.shuffle": "Shuffle",
+
+  "home.title": "Home",
   "home.titlecard.title": "Leonardo Alvarenga",
-  "home.titlecard.text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus tellus ut hendrerit gravida. Nam justo est, semper eget rhoncus in, tincidunt vitae mauris."
+  "home.titlecard.text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus tellus ut hendrerit gravida. Nam justo est, semper eget rhoncus in, tincidunt vitae mauris.",
+  "home.titlecard.email.action": "Email lorem ipsum",
+  "home.skills.title": "Skills",
+  "home.projects.title": "Projects"
 }

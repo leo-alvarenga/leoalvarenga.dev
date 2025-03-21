@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 import { DEFAULT_PAGE_TITLE, PAGE_TITLE_PREFFIX } from "../utils";
+import { getLangFromUrl, useTranslation } from "../config";
 
 interface Props {
   pageTitle?: string;
@@ -9,8 +10,11 @@ interface Props {
 
 const { pageTitle } = Astro.props;
 
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
 const title = pageTitle
-  ? PAGE_TITLE_PREFFIX.concat(pageTitle)
+  ? t(PAGE_TITLE_PREFFIX).concat(t(pageTitle))
   : DEFAULT_PAGE_TITLE;
 ---
 
@@ -32,10 +36,6 @@ const title = pageTitle
     />
 
     <meta name="generator" content={Astro.generator} />
-
-    <script
-      src="https://kit.fontawesome.com/1465a2f357.js"
-      crossorigin="anonymous"></script>
 
     <title>{title}</title>
     <ClientRouter />

@@ -15,7 +15,7 @@ const cardFaceClass = `
 
 <section class="w-full flex flex-col gap-8 pt-12" id="skills">
   <span class="flex flex-row gap-4">
-    <h1 class="text-xl font-bold">{"> "}My skills</h1>
+    <h1 class="text-2xl font-bold">{"> ".concat(t("home.skills.title"))}</h1>
 
     <button
       class="text-mauve cursor-pointer duration-500 transition-all hover:opacity-60"
@@ -39,6 +39,7 @@ const cardFaceClass = `
         >
           <div
             class={`
+              shadow-crust
                 relative h-full w-full
                 rounded-lg shadow-xl
                 border-mauve border

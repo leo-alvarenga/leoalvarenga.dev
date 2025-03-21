@@ -1,0 +1,113 @@
+---
+import {
+  PROJECT_STATUS_COLOR,
+  PROJECT_STATUS_ICON,
+  PROJECTS,
+} from "../../../assets/data";
+import { getLangFromUrl, useTranslation } from "../../../config";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const getProjectActionClass = (disabled = false) => {
+  const base = `
+    flex gap-2 items-center
+    px-2 py-1 border border-mauve
+    rounded-md
+  `;
+
+  if (disabled) {
+    return base.concat(`
+      cursor-not-allowed
+      opacity-60;
+    `);
+  }
+
+  return base.concat(`
+    duration-500 transition-all
+    bg-mantle hover:bg-mauve hover:underline
+    hover:text-crust group
+  `);
+};
+---
+
+<section class="w-full flex flex-col gap-4 pt-12" id="projects">
+  <h1 class="text-2xl font-bold">{"> ".concat(t("home.projects.title"))}</h1>
+
+  <div
+    class={`
+      flex flex-col gap-8
+      items-center px-0 md:px-8 py-4 w-full
+    `}
+  >
+    {
+      PROJECTS.map(
+        ({ description, icon, name, preview, repo, stack, status }) => (
+          <div
+            class={`
+            w-full bg-crust
+            border border-mauve
+            shadow-xl shadow-crust
+            rounded-lg p-4
+            flex flex-col gap-4
+          `}
+          >
+            <h3 class="w-full text-xl font-bold flex gap-4 items-center">
+              <i class={`${icon || "fa-solid fa-code"} text-lg`} />
+
+              <span>{name}</span>
+
+              <span
+                class={`
+                ml-auto text-xs border
+                border-${PROJECT_STATUS_COLOR[status]}
+                rounded-full px-2 py-1`}
+              >
+                <i class={PROJECT_STATUS_ICON[status]} />
+                <span>{t(status)}</span>
+              </span>
+            </h3>
+
+            <p class="text-sm">{description[language]}</p>
+
+            <div class="flex flex-row flex-wrap gap-4 items-center">
+              {stack.map(({ color, label }) => (
+                <span class="flex flex-row gap-1 items-center">
+                  <span
+                    class="w-2 h-2 rounded-full"
+                    style={`background-color: ${color};`}
+                  />
+                  <span>{label}</span>
+                </span>
+              ))}
+            </div>
+
+            <div class="flex gap-4 items-center">
+              <a
+                class={getProjectActionClass(!repo)}
+                href={repo}
+                target="_blank"
+              >
+                <span>{t("commons.repository")}</span>
+                <span>
+                  <i class="fa-solid fa-link text-xs" />
+                </span>
+              </a>
+
+              <a
+                class={getProjectActionClass(!preview.length)}
+                href={preview || undefined}
+                target="_blank"
+              >
+                <span>{t("commons.preview")}</span>
+                <span>
+                  <i class="fa-solid fa-link text-xs" />
+                </span>
+              </a>
+            </div>
+          </div>
+        )
+      )
+    }
+  </div>
+</section>

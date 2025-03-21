@@ -19,7 +19,7 @@ function getLangFromUrl() {
 function getAltUrl(targetLanguage, path) {
   const [lang, currentPath] = getLangFromUrl();
 
-  let resultPath = (path || currentPath).replace(`/${lang}`, "");
+  let resultPath = (path || currentPath).replaceAll(`/${lang}`, "");
 
   if (targetLanguage === Language.english) {
     return resultPath || "/";
@@ -58,8 +58,14 @@ function isCurrentLangCorrect() {
 }
 
 function sync() {
+  console.log(
+    getLangFromUrl(),
+    readPreferredLangFromLS(),
+    isCurrentLangCorrect(),
+  );
   if (isCurrentLangCorrect()) return;
 
+  console.log(getLangFromUrl(), readPreferredLangFromLS());
   window.location.href = getAltUrl(readPreferredLangFromLS());
 }
 
