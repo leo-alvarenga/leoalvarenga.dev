@@ -37,7 +37,7 @@ const contactClasses = {
     group-active:max-w-8
     group-hover:max-w-8
   `,
-  text: "group-hover:underline",
+  text: "group-hover:underline text-center",
 };
 ---
 
@@ -84,15 +84,21 @@ const contactClasses = {
     </p>
 
     <div class="flex flex-col gap-4 w-full">
-      <button class={contactClasses.anchor}>
+      <a
+        class={contactClasses.anchor}
+        data-successtext={t("home.titlecard.email.action.success")}
+        href="mailto:leonardo.a.alvarenga@gmail.com"
+        id="email-action"
+        target="_blank"
+      >
         <span class={contactClasses.preffix}>{"> "}</span>
 
-        <span class={contactClasses.text}
+        <span id="email-action-text" class={contactClasses.text}
           >{t("home.titlecard.email.action")}</span
         >
 
         <i class="fa-solid fa-envelope"></i>
-      </button>
+      </a>
 
       <div class="flex flex-row flex-wrap items-center w-full gap-4">
         {
@@ -126,3 +132,44 @@ const contactClasses = {
     <Image alt="Profile picture" class="w-44 rounded-lg" src={pfp} />
   </div>
 </div>
+
+<script lang="js">
+  let timeout = null;
+
+  function notifyClipboardSuccess(target) {
+    const element = target.querySelector("#email-action-text");
+    if (!element) return;
+
+    const originalText = element.innerText;
+    if (timeout) clearTimeout(timeout);
+
+    element.innerText = target.getAttribute("data-successtext");
+
+    timeout = setTimeout(() => {
+      element.innerText = originalText;
+    }, 4000);
+  }
+
+  function handleEmailAction({ target }) {
+    const email = (target.getAttribute("href") || ":").split(":")[1];
+
+    navigator.clipboard.writeText(String(email));
+    notifyClipboardSuccess(target);
+  }
+
+  function setup() {
+    const emailtToBtn = document.getElementById("email-action");
+
+    if (!emailtToBtn) {
+      console.error(
+        "Email action is not currently avaible. Only redirecting will work"
+      );
+
+      return;
+    }
+
+    emailtToBtn.addEventListener("click", handleEmailAction, false);
+  }
+
+  setup();
+</script>
