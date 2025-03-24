@@ -43,5 +43,20 @@ const title = pageTitle
 
   <body class="bg-base m-0 pb-12 select-none text-text w-full">
     <slot />
+
+    <div class="hidden w-full">
+      <!--
+        This is a list of all colors that are present but no explicitly used;
+        
+        This exists here to ensure the related classnames will be available
+        during development, as otherwise they would only be compiled by Tailwind
+        at build time.
+      -->
+      <div class="flex items-center w-full flex-wrap" id="colors">
+        <span class="bg-green text-green border-green w-2 h-2"></span>
+        <span class="bg-red text-red border-red w-2 h-2"></span>
+        <span class="bg-yellow text-yellow border-yellow w-2 h-2"></span>
+      </div>
+    </div>
   </body>
 </html>
