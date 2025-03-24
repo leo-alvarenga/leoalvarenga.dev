@@ -7,6 +7,14 @@ export enum ProjectStatus {
   inactive = "commons.inactive",
 }
 
+export enum ProjectTag {
+  all = "commons.all",
+  backend = "Back-end",
+  command = "CLI",
+  frontend = "Front-end",
+  linux = "Linux",
+}
+
 export const PROJECT_STATUS_COLOR: Record<ProjectStatus, string> = {
   [ProjectStatus.active]: "green",
   [ProjectStatus.archived]: "yellow",
@@ -33,6 +41,7 @@ export const PROJECTS = [
     repo: "a",
     stack: [TECH_MAP.bun, TECH_MAP.ts],
     status: ProjectStatus.archived,
+    tags: [ProjectTag.backend, ProjectTag.frontend],
   },
   {
     description: {
@@ -52,19 +61,16 @@ export const PROJECTS = [
       TECH_MAP.ts,
     ],
     status: ProjectStatus.inactive,
+    tags: [ProjectTag.frontend],
   },
 ];
 
-export const FEATURED_PROJECTS = [
-  {
-    description: {
-      [Language.english]:
-        "A small and dead simple web app template based on an API Rest built using Bun and ElysiaJS that serves static pages with internalization without overhead.",
-      [Language.portugues]:
-        "Um pequeno e simples template de aplicativo web baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
-    },
-    icon: "",
-    name: "bej",
-    stack: [TECH_MAP.bun, TECH_MAP.ts],
-  },
+export const FEATURED_PROJECTS = [];
+
+export const PROJECT_TAGS = [
+  ProjectTag.all,
+  ProjectTag.backend,
+  ProjectTag.command,
+  ProjectTag.frontend,
+  ProjectTag.linux,
 ];
