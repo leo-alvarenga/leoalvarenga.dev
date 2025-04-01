@@ -1,0 +1,36 @@
+---
+import SkillGrid from "./SkillGrid.astro";
+import SkillHeader from "./SkillHeader.astro";
+---
+
+<section class="w-full flex flex-col gap-8 pt-12" id="skills">
+  <SkillHeader />
+
+  <SkillGrid />
+</section>
+
+<script lang="js">
+  function randInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  function shuffle() {
+    try {
+      const skills = document
+        .getElementById("skill-list")
+        ?.querySelectorAll("li");
+
+      for (const skill of skills) {
+        skill.style.order = randInt(skills.length);
+      }
+    } catch (error) {
+      console.warn("Could not shuffle skills...", error);
+    }
+  }
+
+  function onMount() {
+    shuffle();
+  }
+
+  onMount();
+</script>
