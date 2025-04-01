@@ -1,0 +1,33 @@
+---
+const circleClass = `
+  block w-2 h-2 rounded-full
+  hover:opacity-60 duration-500
+  transition-all cursor-pointer
+`;
+---
+
+<div
+  class={`
+    flex flex-row flex-wrap items-center
+    justify-center relative font-code 
+    text-green p-8 shadow-lg shadow-crust
+    gap-16 bg-crust rounded-b-lg w-full
+  `}
+  id="title-card"
+>
+  <span
+    class={`
+    bg-mantle rounded-t-lg
+    w-full h-6 absolute
+    left-0 -top-2 flex
+    items-center px-4 py-2 gap-2
+  `}
+    id="fake-controls"
+  >
+    <span class={`${circleClass} bg-red`}></span>
+    <span class={`${circleClass} bg-yellow`}></span>
+    <span class={`${circleClass} bg-green`}></span>
+  </span>
+
+  <slot />
+</div>

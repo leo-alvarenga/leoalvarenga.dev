@@ -1,0 +1,109 @@
+---
+import { CONTACTS } from "../../../../assets/data";
+
+import { getLangFromUrl, useTranslation } from "../../../../config";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const contactClasses = {
+  anchor: `
+    cursor-pointer flex flex-row
+    gap-2 items-center justify-center
+    px-4 py-1 border flex-1
+    border-green group
+    
+    active:bg-green
+    hover:bg-green
+
+    active:text-crust
+    hover:text-crust
+
+    duration-500 transition-all
+  `,
+  preffix: `
+    text-crust
+    max-w-0 overflow-hidden
+    duration-500 transition-all
+    group-active:max-w-12
+    group-hover:max-w-12
+  `,
+  text: "group-hover:underline text-center",
+};
+---
+
+<div class="flex flex-col gap-4 w-full">
+  <a
+    class={contactClasses.anchor}
+    data-successtext={t("home.titlecard.email.action.success")}
+    href="mailto:leonardo.a.alvarenga@gmail.com"
+    id="email-action"
+    target="_blank"
+  >
+    <span class={contactClasses.preffix}>
+      <i class="fa-solid fa-copy"></i>
+    </span>
+
+    <span id="email-action-text" class={contactClasses.text}>
+      {t("home.titlecard.email.action")}
+    </span>
+
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+
+  <div class="flex flex-row flex-wrap items-center w-full gap-4">
+    {
+      CONTACTS.map(({ href, icon, label }) => (
+        <a class={contactClasses.anchor} href={href} target="_blank">
+          <span class={contactClasses.text}>{t(label)}</span>
+
+          <i class={icon} />
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script lang="js">
+  let timeout = null;
+
+  function notifyClipboardSuccess(target) {
+    const element = target.querySelector("#email-action-text");
+    if (!element) return;
+
+    const originalText = element.innerText;
+    const successText = target.getAttribute("data-successtext");
+
+    if (timeout) clearTimeout(timeout);
+
+    element.innerText = successText;
+
+    timeout = setTimeout(() => {
+      element.innerText = originalText;
+      clearTimeout(timeout);
+    }, 5000);
+  }
+
+  function handleEmailAction({ target }) {
+    const email = (target.getAttribute("href") || ":").split(":")[1];
+
+    navigator.clipboard.writeText(String(email));
+    notifyClipboardSuccess(target);
+  }
+
+  function setup() {
+    const emailtToBtn = document.getElementById("email-action");
+
+    if (!emailtToBtn) {
+      console.error(
+        "Email action is not currently avaible. Only redirecting will work"
+      );
+
+      return;
+    }
+
+    emailtToBtn.addEventListener("click", handleEmailAction, false);
+  }
+
+  setup();
+</script>
