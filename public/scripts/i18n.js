@@ -72,18 +72,28 @@ function sync() {
 }
 
 function load() {
-  document.addEventListener(
-    "lang_change",
-    (event) => {
-      const { detail } = event;
+  if (!window.hasAlreadyLoaded) {
+    document.addEventListener(
+      "lang_change",
+      (event) => {
+        const { detail } = event;
 
-      writeLangToLS(detail);
-      sync();
-    },
-    false,
-  );
+        writeLangToLS(detail);
+        sync();
+      },
+      false,
+    );
+
+    window.hasAlreadyLoaded = true;
+  }
 
   sync();
 }
 
-load();
+function setup() {
+  load();
+
+  setInterval(load, 1000);
+}
+
+setup();
