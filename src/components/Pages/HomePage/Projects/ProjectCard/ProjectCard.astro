@@ -1,0 +1,36 @@
+---
+import type { Project } from "../../../../../assets/data";
+import ProjectCardActions from "./ProjectCardActions.astro";
+import ProjectCardHeader from "./ProjectCardHeader.astro";
+import ProjectCardStack from "./ProjectCardStack.astro";
+import ProjectCardTags from "./ProjectCardTags.astro";
+
+import { getLangFromUrl } from "../../../../../config";
+
+interface Props {
+  project: Project;
+}
+
+const [language] = getLangFromUrl(Astro.url);
+
+const { project } = Astro.props;
+const { description, icon, name, stack, status, tags, preview, repo } = project;
+---
+
+<div
+  class={`
+        w-full bg-crust
+        border border-mauve
+        shadow-xl shadow-crust
+        rounded-lg p-4
+        flex flex-col gap-4
+    `}
+>
+  <ProjectCardHeader icon={icon} name={name} status={status} />
+
+  <p class="text-sm">{description[language]}</p>
+
+  <ProjectCardTags tags={tags} />
+  <ProjectCardStack stack={stack} />
+  <ProjectCardActions preview={preview} repo={repo} />
+</div>

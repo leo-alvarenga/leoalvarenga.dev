@@ -1,0 +1,13 @@
+---
+import type { ProjectTag } from "../../../../../assets/data";
+
+interface Props {
+  tags: ProjectTag[];
+}
+
+const { tags } = Astro.props;
+---
+
+<div class="flex flex-row flex-wrap gap-4 items-center text-sm text-subtext-0">
+  {tags.map((tag) => <span>#{tag}</span>)}
+</div>

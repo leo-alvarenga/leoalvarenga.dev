@@ -1,0 +1,36 @@
+---
+import {
+  PROJECT_STATUS_COLOR,
+  PROJECT_STATUS_ICON,
+  ProjectStatus,
+} from "../../../../../assets/data";
+
+import { getLangFromUrl, useTranslation } from "../../../../../config";
+
+interface Props {
+  icon: string;
+  name: string;
+  status: ProjectStatus;
+}
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const { icon, name, status } = Astro.props;
+---
+
+<h3 class="w-full text-xl font-bold flex gap-4 items-center">
+  <i class={`${icon || "fa-solid fa-code"} text-lg`}></i>
+
+  <span>{name}</span>
+
+  <span
+    class={`
+      ml-auto text-xs border
+      border-${PROJECT_STATUS_COLOR[status]}
+      rounded-full px-2 py-1`}
+  >
+    <i class={PROJECT_STATUS_ICON[status]}></i>
+    <span>{t(status)}</span>
+  </span>
+</h3>

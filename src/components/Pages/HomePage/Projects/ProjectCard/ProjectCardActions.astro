@@ -1,0 +1,54 @@
+---
+import { getLangFromUrl, useTranslation } from "../../../../../config";
+
+interface Props {
+  preview?: string;
+  repo?: string;
+}
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const { preview, repo } = Astro.props;
+
+const getProjectActionClass = (disabled = false) => {
+  const base = `
+    flex gap-2 items-center
+    px-2 py-1 border border-mauve
+    rounded-md
+  `;
+
+  if (disabled) {
+    return base.concat(`
+      opacity-40
+      cursor-not-allowed
+    `);
+  }
+
+  return base.concat(`
+    duration-500 transition-all
+    bg-mantle hover:bg-mauve hover:underline
+    hover:text-crust group
+  `);
+};
+---
+
+<div class="flex gap-4 items-center">
+  <a class={getProjectActionClass(!repo?.length)} href={repo} target="_blank">
+    <span>{t("commons.repository")}</span>
+    <span>
+      <i class="fa-solid fa-link text-xs"></i>
+    </span>
+  </a>
+
+  <a
+    class={getProjectActionClass(!preview?.length)}
+    href={preview || undefined}
+    target="_blank"
+  >
+    <span>{t("commons.preview")}</span>
+    <span>
+      <i class="fa-solid fa-link text-xs"></i>
+    </span>
+  </a>
+</div>

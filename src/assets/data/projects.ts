@@ -1,6 +1,13 @@
 import { Language } from "../../config";
 import { TECH_MAP } from "./technologies";
 
+export type ProjectDescription = Record<Language, string>;
+
+export type ProjectStack = {
+  color: string;
+  label: string;
+};
+
 export enum ProjectStatus {
   active = "commons.active",
   archived = "commons.archived",
@@ -15,6 +22,17 @@ export enum ProjectTag {
   linux = "Linux",
 }
 
+export type Project = {
+  description: ProjectDescription;
+  icon: string;
+  name: string;
+  preview?: string;
+  repo?: string;
+  stack: ProjectStack[];
+  status: ProjectStatus;
+  tags: ProjectTag[];
+};
+
 export const PROJECT_STATUS_COLOR: Record<ProjectStatus, string> = {
   [ProjectStatus.active]: "green",
   [ProjectStatus.archived]: "yellow",
@@ -27,7 +45,7 @@ export const PROJECT_STATUS_ICON: Record<ProjectStatus, string> = {
   [ProjectStatus.inactive]: `fa-solid fa-business-time  text-${PROJECT_STATUS_COLOR[ProjectStatus.inactive]}`,
 };
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     description: {
       [Language.english]:
