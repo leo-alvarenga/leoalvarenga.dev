@@ -2,9 +2,8 @@ import errorTaken from "../assets/error_taken.svg";
 
 import inProgress from "../assets/in_progress.svg";
 
-import notFound404 from "../assets/not_found_404.svg";
+import notFoundGalaxy from "../assets/not_found_galaxy.svg";
 import notFoundVoid from "../assets/not_found_void.svg";
-import notFoundWoman from "../assets/not_found_woman.svg";
 import { Language } from "../config";
 
 export const PAGE_TITLE_PREFFIX = "Leonardo Alvarenga";
@@ -23,7 +22,7 @@ export const LANGUAGE_HINTS = {
 export const STATUS_IMAGES = {
   ERROR: [errorTaken],
   IN_PROGRESS: [inProgress],
-  NOT_FOUND: [notFound404, notFoundVoid, notFoundWoman],
+  NOT_FOUND: [notFoundGalaxy, notFoundVoid],
 };
 
 export const NAVBAR_LINKS = [

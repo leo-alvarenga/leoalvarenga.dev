@@ -14,7 +14,7 @@ const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 
 const title = pageTitle
-  ? t(PAGE_TITLE_PREFFIX).concat(t(pageTitle))
+  ? t(PAGE_TITLE_PREFFIX).trimEnd().concat(" - ", t(pageTitle))
   : DEFAULT_PAGE_TITLE;
 ---
 

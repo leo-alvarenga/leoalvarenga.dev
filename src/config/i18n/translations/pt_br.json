@@ -10,10 +10,16 @@
   "commons.shuffle": "Embaralhar",
 
   "home.title": "Início",
+  "home.meta.title": "Saiba mais sobre mim",
   "home.titlecard.title": "Leonardo Alvarenga",
   "home.titlecard.text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus tellus ut hendrerit gravida. Nam justo est, semper eget rhoncus in, tincidunt vitae mauris.",
   "home.titlecard.email.action": "Email lorem ipsum",
   "home.titlecard.email.action.success": "Endereço de email copiado para a área de transferência!",
   "home.skills.title": "Skills",
-  "home.projects.title": "Projetos"
+  "home.projects.title": "Projetos",
+
+  "404.title": "Erro 404 - Página fora de órbita",
+  "404.meta.title": "Página não encontrada",
+  "404.description": "Nossa nave não conseguiu encontrar essa página. Vamos voltar à base?",
+  "404.redirect": "Voltar para o Início"
 }

@@ -10,10 +10,16 @@
   "commons.shuffle": "Shuffle",
 
   "home.title": "Home",
+  "home.meta.title": "Learn more about me",
   "home.titlecard.title": "Leonardo Alvarenga",
   "home.titlecard.text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dapibus tellus ut hendrerit gravida. Nam justo est, semper eget rhoncus in, tincidunt vitae mauris.",
   "home.titlecard.email.action": "Email lorem ipsum",
   "home.titlecard.email.action.success": "Email address copied to the clipboard!",
   "home.skills.title": "Skills",
-  "home.projects.title": "Projects"
+  "home.projects.title": "Projects",
+
+  "404.title": "404 Error - Page Out of Orbit",
+  "404.meta.title": "Page not found",
+  "404.description": "Our spaceship couldn't find this page. Shall we return to base?",
+  "404.redirect": "Return to Home"
 }
