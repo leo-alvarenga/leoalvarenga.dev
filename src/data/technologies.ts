@@ -1,4 +1,9 @@
-export const TECH_MAP = {
+export type Technology = {
+  color: string;
+  label: string;
+};
+
+export const TECH_MAP: Record<string, Technology> = {
   bun: {
     color: "#faefde",
     label: "Bun",

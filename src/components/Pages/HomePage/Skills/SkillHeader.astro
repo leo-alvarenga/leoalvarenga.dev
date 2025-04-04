@@ -1,12 +1,13 @@
 ---
 import { getLangFromUrl, useTranslation } from "../../../../config";
+import SectionTitle from "../../../SectionTitle.astro";
 
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
 <span class="flex flex-row gap-4">
-  <h1 class="text-2xl font-bold">{"> ".concat(t("home.skills.title"))}</h1>
+  <SectionTitle title="home.skills.title" />
 
   <button
     class="text-mauve cursor-pointer duration-500 transition-all hover:opacity-60"

@@ -1,4 +1,21 @@
-export const SKILLS = [
+export type SkillCardFrontFace = {
+  bg: string;
+  content: string;
+  isSrc?: boolean;
+  style?: string;
+};
+
+export type SkillCardBackFace = SkillCardFrontFace & {
+  text: string;
+};
+
+export type Skill = {
+  back: SkillCardBackFace;
+  front: SkillCardFrontFace;
+  id: string;
+};
+
+export const SKILLS: Skill[] = [
   {
     front: {
       bg: "var(--color-text)",

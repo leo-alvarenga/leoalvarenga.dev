@@ -1,4 +1,8 @@
-import { Language, type TranslationParams } from "./types";
+import {
+  Language,
+  type TranslationFunction,
+  type TranslationParams,
+} from "./types";
 import { DEFAULT_LANG, TRANSLATION_MAP } from "./utils";
 
 export type UseTranslationParams = {
@@ -7,7 +11,7 @@ export type UseTranslationParams = {
 
 export function useTranslation({
   language = DEFAULT_LANG,
-}: UseTranslationParams) {
+}: UseTranslationParams): { t: TranslationFunction } {
   const table = TRANSLATION_MAP[language];
 
   return {

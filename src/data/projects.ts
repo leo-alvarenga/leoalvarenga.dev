@@ -1,12 +1,6 @@
-import { Language } from "../../config";
-import { TECH_MAP } from "./technologies";
-
-export type ProjectDescription = Record<Language, string>;
-
-export type ProjectStack = {
-  color: string;
-  label: string;
-};
+import { Language } from "../config";
+import type { TranslatableText } from "../utils";
+import { TECH_MAP, type Technology } from "./technologies";
 
 export enum ProjectStatus {
   active = "commons.active",
@@ -23,12 +17,12 @@ export enum ProjectTag {
 }
 
 export type Project = {
-  description: ProjectDescription;
+  description: TranslatableText;
   icon: string;
   name: string;
   preview?: string;
   repo?: string;
-  stack: ProjectStack[];
+  stack: Technology[];
   status: ProjectStatus;
   tags: ProjectTag[];
 };
@@ -83,6 +77,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
+// TODO: Add featured projects (maybe with a slider?)
 export const FEATURED_PROJECTS = [];
 
 export const PROJECT_TAGS = [

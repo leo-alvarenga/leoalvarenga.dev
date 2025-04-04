@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, useTranslation, type Language } from "../../../config";
 import BasicLayout from "../../../layouts/BasicLayout.astro";
+import Experience from "./Experience/Experience.astro";
 import Projects from "./Projects/Projects.astro";
 import Skills from "./Skills/Skills.astro";
 import Name from "./TitleCard/Name.astro";
@@ -21,6 +22,7 @@ const { t } = useTranslation({ language });
   />
 
   <Name />
+  <Experience />
   <Skills />
   <Projects />
 </BasicLayout>

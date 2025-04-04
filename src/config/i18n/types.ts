@@ -8,3 +8,8 @@ type TranslationTable = Record<string, string>;
 export type TranslationMap = Record<Language, TranslationTable>;
 
 export type TranslationParams = Record<string, string | number>;
+
+export type TranslationFunction = (
+  key: string,
+  params?: TranslationParams,
+) => string;

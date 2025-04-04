@@ -1,5 +1,6 @@
 ---
-import type { Project } from "../../../../../assets/data";
+import { type Project } from "../../../../../data";
+import { translatableTextToString } from "../../../../../utils";
 import ProjectCardActions from "./ProjectCardActions.astro";
 import ProjectCardHeader from "./ProjectCardHeader.astro";
 import ProjectCardStack from "./ProjectCardStack.astro";
@@ -28,7 +29,7 @@ const { description, icon, name, stack, status, tags, preview, repo } = project;
 >
   <ProjectCardHeader icon={icon} name={name} status={status} />
 
-  <p class="text-sm">{description[language]}</p>
+  <p class="text-sm">{translatableTextToString(description, language)}</p>
 
   <ProjectCardTags tags={tags} />
   <ProjectCardStack stack={stack} />

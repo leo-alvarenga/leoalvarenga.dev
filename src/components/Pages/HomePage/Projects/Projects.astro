@@ -1,35 +1,15 @@
 ---
-import { PROJECTS } from "../../../../assets/data";
+import { PROJECTS } from "../../../../data";
 import { getLangFromUrl, useTranslation } from "../../../../config";
+import SectionTitle from "../../../SectionTitle.astro";
 import ProjectCard from "./ProjectCard/ProjectCard.astro";
 
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
-
-const getProjectActionClass = (disabled = false) => {
-  const base = `
-    flex gap-2 items-center
-    px-2 py-1 border border-mauve
-    rounded-md
-  `;
-
-  if (disabled) {
-    return base.concat(`
-      opacity-40
-      cursor-not-allowed
-    `);
-  }
-
-  return base.concat(`
-    duration-500 transition-all
-    bg-mantle hover:bg-mauve hover:underline
-    hover:text-crust group
-  `);
-};
 ---
 
 <section class="w-full flex flex-col gap-4 pt-12" id="projects">
-  <h1 class="text-2xl font-bold">{"> ".concat(t("home.projects.title"))}</h1>
+  <SectionTitle title="home.projects.title" />
 
   <div
     class={`
