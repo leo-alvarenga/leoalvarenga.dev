@@ -1,3 +1,6 @@
+import nupessc from "../assets/NuPESSC_logo.png";
+import vetta from "../assets/Vetta_logo.png";
+
 import errorTaken from "../assets/error_taken.svg";
 
 import inProgress from "../assets/in_progress.svg";
@@ -19,6 +22,11 @@ export const LANGUAGE_LABELS = {
 export const LANGUAGE_HINTS = {
   [Language.english]: "Switch to english",
   [Language.portugues]: "Trocar para português",
+};
+
+export const COMPANY_LOGOS = {
+  vetta,
+  nupessc,
 };
 
 export const STATUS_IMAGES = {

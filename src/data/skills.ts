@@ -319,4 +319,43 @@ export const SKILLS: Skill[] = [
     },
     id: "bash",
   },
+  {
+    front: {
+      bg: "var(--color-text)",
+      content: "devicon-kubernetes-plain colored",
+    },
+    back: {
+      bg: "rgb(50, 107, 230)",
+      content: "Kubernetes",
+      text: "var(--color-text)",
+    },
+    id: "k8s",
+  },
+  {
+    front: {
+      bg: "var(--color-text)",
+      content: "devicon-azuredevops-plain colored",
+    },
+    back: {
+      bg: "#0078d4",
+      content: "Azure DevOps",
+      text: "var(--color-text)",
+    },
+    id: "azureDevOps",
+  },
+  {
+    front: {
+      bg: "var(--color-text)",
+      content:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
+      isSrc: true,
+    },
+    back: {
+      bg: "#ffa200",
+      content: "Firebase",
+      text: "var(--color-crust)",
+    },
+    id: "firebase",
+  },
 ];
+// https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg
