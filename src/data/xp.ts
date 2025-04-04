@@ -1,3 +1,4 @@
+import { Language } from "../config";
 import { TECH_MAP, type Technology } from "./technologies";
 import type { COMPANY_LOGOS, TranslatableText } from "../utils";
 
