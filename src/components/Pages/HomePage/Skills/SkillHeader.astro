@@ -6,11 +6,16 @@ const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
-<span class="flex flex-row gap-4">
+<span class="flex flex-row gap-4 group">
   <SectionTitle title="home.skills.title" />
 
   <button
-    class="text-mauve cursor-pointer duration-500 transition-all hover:opacity-60"
+    class={`
+      opacity-0 group-hover:opacity-100
+      text-mauve cursor-pointer
+      duration-500 transition-all
+      hover:opacity-60
+    `}
     onclick="shuffle()"
     title={t("commons.shuffle")}
   >

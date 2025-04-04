@@ -345,17 +345,31 @@ export const SKILLS: Skill[] = [
   },
   {
     front: {
-      bg: "var(--color-text)",
+      bg: "var(--color-crust)",
       content:
         "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
       isSrc: true,
     },
     back: {
-      bg: "#ffa200",
+      bg: "var(--color-crust)",
       content: "Firebase",
-      text: "var(--color-crust)",
+      text: "#ffa200",
     },
     id: "firebase",
   },
+  {
+    front: {
+      bg: "var(--color-crust)",
+      content: "devicon-git-plain colored",
+    },
+    back: {
+      bg: "#f24e29",
+      content: "git",
+      text: "var(--color-crust)",
+    },
+    id: "git",
+  },
 ];
+
+//
 // https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg

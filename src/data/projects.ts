@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
       [Language.english]:
         "A small and dead simple web app template based on an API Rest built using Bun and ElysiaJS that serves static pages with internalization without overhead.",
       [Language.portugues]:
-        "Um pequeno e simples template de aplicativo web baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
+        "Um pequeno e simples template para webapps baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
     },
     icon: "fa-solid fa-server",
     name: "bej",
