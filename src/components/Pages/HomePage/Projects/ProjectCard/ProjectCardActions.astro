@@ -34,7 +34,11 @@ const getProjectActionClass = (disabled = false) => {
 ---
 
 <div class="flex gap-4 items-center">
-  <a class={getProjectActionClass(!repo?.length)} href={repo} target="_blank">
+  <a
+    class={getProjectActionClass(!repo?.length)}
+    href={repo || "/"}
+    target="_blank"
+  >
     <span class="group-hover:underline">{t("commons.repository")}</span>
     <span>
       <i class="devicon-github-original text-lg"></i>
@@ -43,7 +47,7 @@ const getProjectActionClass = (disabled = false) => {
 
   <a
     class={getProjectActionClass(!preview?.length)}
-    href={preview || undefined}
+    href={preview || "/"}
     target="_blank"
   >
     <span class="group-hover:underline">{t("commons.preview")}</span>

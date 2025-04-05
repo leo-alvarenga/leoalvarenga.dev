@@ -14,7 +14,13 @@ const name = t("nav.name").split(" ");
 ---
 
 <a class="flex items-center gap-4 mr-auto" href={getAltUrl(url, language, "/")}>
-  <Image alt="Leonardo Alvarenga" class="pb-1" height={36} src={logo} />
+  <Image
+    alt="Leonardo Alvarenga"
+    class="pb-1"
+    height={36}
+    loading="eager"
+    src={logo}
+  />
 
   <span class="flex items-center group font-anonymous text-2xl">
     {

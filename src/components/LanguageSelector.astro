@@ -43,7 +43,7 @@ const langs = Object.entries(LANGUAGE_LABELS).filter(
   >
     {
       langs.map(([lang, label], i) => (
-        <a
+        <button
           class={`
             ${i === 0 ? "mt-2" : ""}
             border border-transparent
@@ -55,7 +55,7 @@ const langs = Object.entries(LANGUAGE_LABELS).filter(
           title={LANGUAGE_HINTS[lang as Language]}
         >
           {label}
-        </a>
+        </button>
       ))
     }
   </div>

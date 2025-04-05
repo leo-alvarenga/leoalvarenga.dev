@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import { SKILLS } from "../../../../data";
+import SkillImage from "./SkillImage.astro";
 
 const cardFaceClass = `
   absolute inset-0
@@ -37,11 +39,7 @@ const cardFaceClass = `
             id={`${id}-front`}
             style={`background-color: ${front.bg}`}
           >
-            {front.isSrc ? (
-              <img alt={back.content} class="w-8 md:w-16" src={front.content} />
-            ) : (
-              <i class={`${front.content} text-4xl md:text-6xl`} />
-            )}
+            <SkillImage skill={{ back, front, id }} />
           </div>
 
           <div
