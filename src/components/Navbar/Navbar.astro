@@ -16,10 +16,13 @@ const { t } = useTranslation({ language });
 const commonClasses = "flex flex-row items-center";
 
 const getMenuItemClass = (baseHref: string) => {
-  const actualPath =
-    language === DEFAULT_LANG ? baseHref : baseHref.replace(`/${language}`, "");
+  const actualPath = (
+    language === DEFAULT_LANG ? baseHref : baseHref.replace(`/${language}`, "")
+  ).replace("/", "");
 
   const active = actualPath === path;
+
+  console.log({ active, baseHref, actualPath, path });
 
   let classList = `
     flex flex-row items-center

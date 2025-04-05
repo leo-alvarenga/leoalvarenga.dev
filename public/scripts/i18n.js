@@ -95,7 +95,7 @@ function load() {
 function setup() {
   load();
 
-  setInterval(load, 1000);
+  setInterval(load, 500);
 }
 
 setup();
