@@ -38,6 +38,10 @@ export const STATUS_IMAGES = {
 export const NAVBAR_LINKS = [
   {
     label: "home.title",
-    baseHref: "/",
+    baseHref: "",
+  },
+  {
+    label: "blog.title",
+    baseHref: "/blog",
   },
 ];

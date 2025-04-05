@@ -10,6 +10,8 @@
   "commons.shuffle": "Shuffle",
   "commons.currently": "Currently",
 
+  "nav.name": "Leo Alvarenga",
+
   "home.title": "Home",
   "home.meta.title": "Learn more about me",
   "home.titlecard.title": "Leonardo Alvarenga",
@@ -24,5 +26,7 @@
   "404.title": "404 Error - Page Out of Orbit",
   "404.meta.title": "Page not found",
   "404.description": "Our spaceship couldn't find this page. Shall we return to base?",
-  "404.redirect": "Return to Home"
+  "404.redirect": "Return to Home",
+
+  "blog.title": "Blog"
 }

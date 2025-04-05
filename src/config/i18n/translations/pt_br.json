@@ -10,6 +10,8 @@
   "commons.shuffle": "Embaralhar",
   "commons.currently": "Atualmente",
 
+  "nav.name": "Leo Alvarenga",
+
   "home.title": "Início",
   "home.meta.title": "Saiba mais sobre mim",
   "home.titlecard.title": "Leonardo Alvarenga",
@@ -24,5 +26,7 @@
   "404.title": "Erro 404 - Página fora de órbita",
   "404.meta.title": "Página não encontrada",
   "404.description": "Nossa nave não conseguiu encontrar essa página. Vamos voltar à base?",
-  "404.redirect": "Voltar para o Início"
+  "404.redirect": "Voltar para o Início",
+
+  "blog.title": "Blog"
 }
