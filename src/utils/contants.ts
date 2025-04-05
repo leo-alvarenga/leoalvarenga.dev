@@ -16,6 +16,8 @@ export const DEFAULT_PAGE_TITLE = `${PAGE_TITLE_PREFFIX} - Frontend Software Eng
 
 export const DEFAULT_DATE_FORMAT = "MMMM, YYYY";
 
+export const EMAIL_FOR_CONTACT = "leonardo.a.alvarenga@gmail.com";
+
 export const LANGUAGE_LABELS = {
   [Language.english]: "English 🇺🇸",
   [Language.portugues]: "Português 🇧🇷",
