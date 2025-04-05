@@ -19,6 +19,9 @@
   "home.titlecard.email.action": "Email lorem ipsum",
   "home.titlecard.email.action.success": "Email address copied to the clipboard!",
 
+  "home.hero.text.sm": "Hey, I'm Leo Alvarenga!",
+  "home.hero.text.lg": "I develop optimized and full fledged UIs for modern WebApps",
+  "home.hero.action": "See more",
   "home.xp.title": "Experience",
   "home.skills.title": "Skills",
   "home.projects.title": "Projects",
