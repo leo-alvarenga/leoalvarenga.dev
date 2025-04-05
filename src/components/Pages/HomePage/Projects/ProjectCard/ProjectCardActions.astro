@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import { getLangFromUrl, useTranslation } from "../../../../../config";
 
 interface Props {
@@ -52,7 +54,7 @@ const getProjectActionClass = (disabled = false) => {
   >
     <span class="group-hover:underline">{t("commons.preview")}</span>
     <span>
-      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      <Icon name="fa6-solid:arrow-up-right-from-square" />
     </span>
   </a>
 </div>

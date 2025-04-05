@@ -16,6 +16,11 @@ export enum ProjectTag {
   linux = "Linux",
 }
 
+export type ProjectStatusIcon = {
+  className: string;
+  name: string;
+};
+
 export type Project = {
   description: TranslatableText;
   icon: string;
@@ -33,10 +38,19 @@ export const PROJECT_STATUS_COLOR: Record<ProjectStatus, string> = {
   [ProjectStatus.inactive]: "red",
 };
 
-export const PROJECT_STATUS_ICON: Record<ProjectStatus, string> = {
-  [ProjectStatus.active]: `fa-solid fa-circle text-${PROJECT_STATUS_COLOR[ProjectStatus.active]}`,
-  [ProjectStatus.archived]: `fa-solid fa-box-archive text-${PROJECT_STATUS_COLOR[ProjectStatus.archived]}`,
-  [ProjectStatus.inactive]: `fa-solid fa-business-time  text-${PROJECT_STATUS_COLOR[ProjectStatus.inactive]}`,
+export const PROJECT_STATUS_ICON: Record<ProjectStatus, ProjectStatusIcon> = {
+  [ProjectStatus.active]: {
+    className: `text-${PROJECT_STATUS_COLOR[ProjectStatus.active]}`,
+    name: "fa6-solid:circle",
+  },
+  [ProjectStatus.archived]: {
+    className: `text-${PROJECT_STATUS_COLOR[ProjectStatus.archived]}`,
+    name: "fa6-solid:box-archive",
+  },
+  [ProjectStatus.inactive]: {
+    className: `text-${PROJECT_STATUS_COLOR[ProjectStatus.inactive]}`,
+    name: "fa6-solid:business-time",
+  },
 };
 
 export const PROJECTS: Project[] = [
@@ -47,7 +61,7 @@ export const PROJECTS: Project[] = [
       [Language.portugues]:
         "Um pequeno e simples template para webapps baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
     },
-    icon: "fa-solid fa-server",
+    icon: "server",
     name: "bej",
     preview: "a",
     repo: "a",

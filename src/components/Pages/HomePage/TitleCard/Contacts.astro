@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import { CONTACTS } from "../../../../data";
 
 import { getLangFromUrl, useTranslation } from "../../../../config";
@@ -40,14 +42,14 @@ const contactClasses = {
     id="email-action"
   >
     <span class={contactClasses.preffix}>
-      <i class="fa-solid fa-copy"></i>
+      <Icon name="fa6-solid:copy" />
     </span>
 
     <span id="email-action-text" class={contactClasses.text}>
       {t("home.titlecard.email.action")}
     </span>
 
-    <i class="fa-solid fa-envelope"></i>
+    <Icon name="fa6-solid:envelope" />
   </button>
 
   <div class="flex flex-row flex-wrap items-center w-full gap-4">

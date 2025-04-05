@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 import { getLangFromUrl, useTranslation } from "../../../../config";
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
@@ -30,7 +32,7 @@ const { t } = useTranslation({ language });
     >
       {t("home.hero.action")}
 
-      <i class="fa-solid fa-arrow-down animate-bounce"></i>
+      <Icon class="animate-bounce" name="fa6-solid:arrow-down" />
     </button>
   </div>
 </section>

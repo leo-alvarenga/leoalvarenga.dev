@@ -1,10 +1,10 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 import { getLangFromUrl, useTranslation } from "../../config";
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import { STATUS_IMAGES } from "../../utils";
-import { map } from "astro:schema";
 
 interface Props {
   description: string;
@@ -63,15 +63,18 @@ const images = STATUS_IMAGES[kind];
     `}
     href={redirectHref}
   >
-    <i class="fa-solid fa-arrow-left"></i>
+    <Icon name="fa6-solid:arrow-left" />
     <span class="group-hover:underline">{t(redirect)}</span>
 
-    <i
+    <Icon
       class={`
-        fa-solid fa-shuttle-space -rotate-180
-        max-w-0 overflow-hidden group-hover:max-w-8
-        duration-250 transition-all animate-blink
-      `}></i>
+        -rotate-180 animate-blink
+        max-w-0 overflow-hidden
+        group-hover:max-w-8
+        duration-250 transition-all
+      `}
+      name="fa6-solid:shuttle-space"
+    />
   </a>
 </BasicLayout>
 

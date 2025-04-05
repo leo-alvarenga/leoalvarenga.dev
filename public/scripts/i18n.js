@@ -66,11 +66,9 @@ function isCurrentLangCorrect() {
 }
 
 function sync() {
-  if (!isCurrentLangCorrect()) {
-    window.location.href = getAltUrl(readPreferredLangFromLS());
-  }
+  if (isCurrentLangCorrect()) return;
 
-  document.dispatchEvent(new Event("DOMContentLoaded"));
+  window.location.href = getAltUrl(readPreferredLangFromLS());
 }
 
 function load() {
