@@ -28,5 +28,9 @@
   "404.description": "Our spaceship couldn't find this page. Shall we return to base?",
   "404.redirect": "Return to Home",
 
+  "tbd.title": "Preparing for launch...",
+  "tbd.description": "This page isn't quite ready yet — but the countdown has begun. Come back soon to see what’s out there!",
+  "tbd.redirect": "Return to Mission Control",
+
   "blog.title": "Blog"
 }

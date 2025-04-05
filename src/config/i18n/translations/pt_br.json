@@ -28,5 +28,9 @@
   "404.description": "Nossa nave não conseguiu encontrar essa página. Vamos voltar à base?",
   "404.redirect": "Voltar para o Início",
 
+  "tbd.title": "Preparando para o lançamento...",
+  "tbd.description": "Esta página ainda não está pronta — mas a contagem regressiva já começou. Volte em breve para descobrir o que está lá fora!",
+  "tbd.redirect": "Voltar para o Controle da Missão",
+
   "blog.title": "Blog"
 }
