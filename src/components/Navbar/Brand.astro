@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+
+import logo from "../../assets/leoalvarenga_alt.svg";
+
+import { getAltUrl, getLangFromUrl, useTranslation } from "../../config";
+
+const { url } = Astro;
+
+const [language] = getLangFromUrl(url);
+const { t } = useTranslation({ language });
+
+const name = t("nav.name").split(" ");
+---
+
+<a class="flex items-center gap-4 mr-auto" href={getAltUrl(url, language, "/")}>
+  <Image alt="Leonardo Alvarenga" class="pb-1" height={36} src={logo} />
+
+  <span class="flex items-center group font-anonymous text-2xl">
+    {
+      name.map((part, i) => (
+        <>
+          {Array.from(part).map((char) => (
+            <span
+              class={`
+                duration-250 transition-all
+                hover:font-bold
+                hover:-translate-y-1
+                hover:text-mauve
+                hover:opacity-100
+                group-hover:opacity-60
+              `}
+            >
+              {char === " " ? " " : char}
+            </span>
+          ))}
+
+          {i !== name.length - 1 && <span class="w-2" />}
+        </>
+      ))
+    }
+  </span>
+</a>

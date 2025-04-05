@@ -1,0 +1,63 @@
+---
+import {
+  DEFAULT_LANG,
+  getAltUrl,
+  getLangFromUrl,
+  useTranslation,
+} from "../../config";
+import { NAVBAR_LINKS } from "../../utils";
+import Brand from "./Brand.astro";
+
+const { url } = Astro;
+
+const [language, path] = getLangFromUrl(url);
+const { t } = useTranslation({ language });
+
+const commonClasses = "flex flex-row items-center";
+
+const getMenuItemClass = (baseHref: string) => {
+  const actualPath =
+    language === DEFAULT_LANG ? baseHref : baseHref.replace(`/${language}`, "");
+
+  const active = actualPath === path;
+
+  let classList = `
+    flex flex-row items-center
+    justify-center px-2 relative
+    transition-all duration-250
+    group-hover:opacity-60
+  `;
+
+  if (!active) {
+    return `${classList} opacity-60 hover:opacity-100`;
+  }
+
+  return `${classList} hover:opacity-100`;
+};
+---
+
+<nav class={`w-full p-2 ${commonClasses} gap-4 justify-center overflow-hidden`}>
+  <div
+    class={`
+    ${commonClasses}
+    w-full md:w-[70vw] relative
+    gap-2 p-2 text-lg
+    transition-all duration-250
+  `}
+  >
+    <Brand />
+
+    <span class={`${commonClasses} group`}>
+      {
+        NAVBAR_LINKS.map(({ label, baseHref }) => (
+          <a
+            class={getMenuItemClass(baseHref)}
+            href={getAltUrl(url, language, baseHref)}
+          >
+            {t(label)}
+          </a>
+        ))
+      }
+    </span>
+  </div>
+</nav>

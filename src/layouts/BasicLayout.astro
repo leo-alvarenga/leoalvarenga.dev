@@ -1,5 +1,5 @@
 ---
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar/Navbar.astro";
 import Layout from "./Layout.astro";
 import { pageTitleToId } from "../utils";
 import LanguageSelector from "../components/LanguageSelector.astro";
@@ -17,8 +17,7 @@ const { className = "", disableNavbar, pageTitle } = Astro.props;
   <script
     crossorigin="anonymous"
     fetchpriority="high"
-    src="https://kit.fontawesome.com/1465a2f357.js"
-  ></script>
+    src="https://kit.fontawesome.com/1465a2f357.js"></script>
 
   {!disableNavbar && <Navbar />}
 
