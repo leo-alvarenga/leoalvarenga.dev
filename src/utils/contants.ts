@@ -3,7 +3,9 @@ import vetta from "../assets/Vetta_logo.png";
 
 import errorTaken from "../assets/error_taken.svg";
 
-import inProgress from "../assets/in_progress.svg";
+import inProgressAstronaut from "../assets/in_progress_astronaut.svg";
+import inProgressMoon from "../assets/in_progress_moon.svg";
+import inProgressRelaunch from "../assets/in_progress_relaunch.svg";
 
 import notFoundGalaxy from "../assets/not_found_galaxy.svg";
 import notFoundVoid from "../assets/not_found_void.svg";
@@ -31,7 +33,7 @@ export const COMPANY_LOGOS = {
 
 export const STATUS_IMAGES = {
   ERROR: [errorTaken],
-  IN_PROGRESS: [inProgress],
+  IN_PROGRESS: [inProgressAstronaut, inProgressMoon, inProgressRelaunch],
   NOT_FOUND: [notFoundGalaxy, notFoundVoid],
 };
 
