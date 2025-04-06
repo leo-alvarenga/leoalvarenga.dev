@@ -1,13 +1,14 @@
 ---
+import Section from "../../../Section.astro";
 import SkillGrid from "./SkillGrid.astro";
 import SkillHeader from "./SkillHeader.astro";
 ---
 
-<section class="w-full flex flex-col gap-8 pt-12" id="skills">
+<Section className="flex flex-col gap-8 pt-12" id="skills">
   <SkillHeader />
 
   <SkillGrid />
-</section>
+</Section>
 
 <script lang="js">
   function randInt(max) {

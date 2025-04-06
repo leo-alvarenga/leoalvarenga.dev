@@ -3,11 +3,12 @@ import { Icon } from "astro-icon/components";
 
 import { getLangFromUrl, useTranslation } from "../../../../config";
 import HeroTitle from "./HeroTitle.astro";
+import Section from "../../../Section.astro";
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
-<section class="relative z-0" id="hero">
+<Section className="lg:w-[80%] relative z-0" id="hero">
   <div
     class="z-10 pt-4 pb-8 px-4 mx-auto min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center md:justify-start max-w-screen-xl text-center lg:py-16 lg:px-12"
   >
@@ -33,7 +34,7 @@ const { t } = useTranslation({ language });
       <Icon class="animate-bounce" name="fa6-solid:arrow-down" />
     </button>
   </div>
-</section>
+</Section>
 
 <script lang="js">
   function scrollToTitleCard() {

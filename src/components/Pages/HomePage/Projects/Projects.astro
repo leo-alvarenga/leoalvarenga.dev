@@ -1,14 +1,11 @@
 ---
 import { PROJECTS } from "../../../../data";
-import { getLangFromUrl, useTranslation } from "../../../../config";
 import SectionTitle from "../../../SectionTitle.astro";
 import ProjectCard from "./ProjectCard/ProjectCard.astro";
-
-const [language] = getLangFromUrl(Astro.url);
-const { t } = useTranslation({ language });
+import Section from "../../../Section.astro";
 ---
 
-<section class="w-full flex flex-col gap-4 pt-12" id="projects">
+<Section className="flex flex-col gap-4 pt-12" id="projects">
   <SectionTitle title="home.projects.title" />
 
   <div
@@ -19,4 +16,4 @@ const { t } = useTranslation({ language });
   >
     {PROJECTS.map((project) => <ProjectCard project={project} />)}
   </div>
-</section>
+</Section>

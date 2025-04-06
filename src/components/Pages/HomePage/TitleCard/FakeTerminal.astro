@@ -1,4 +1,6 @@
 ---
+import Section from "../../../Section.astro";
+
 const circleClass = `
   block w-2 h-2 rounded-full
   hover:opacity-60 duration-250
@@ -6,12 +8,12 @@ const circleClass = `
 `;
 ---
 
-<div
-  class={`
+<Section
+  className={`
     flex flex-row flex-wrap items-center
     justify-center relative font-code 
     text-green p-8 shadow-lg shadow-crust
-    gap-16 bg-crust rounded-b-lg w-full
+    gap-16 bg-crust rounded-b-lg
   `}
 >
   <span
@@ -29,4 +31,4 @@ const circleClass = `
   </span>
 
   <slot />
-</div>
+</Section>
