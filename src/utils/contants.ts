@@ -49,3 +49,18 @@ export const NAVBAR_LINKS = [
     baseHref: "/blog",
   },
 ];
+
+export const HERO_HIGHLIGHTED_WORDS = [
+  {
+    style: "text-peach font-light font-petit-formal",
+    word: "hero.word.beautiful",
+  },
+  {
+    style: "text-blue italic font-anonymous", // add cursive or curly font
+    word: "hero.word.personality",
+  },
+  {
+    style: "text-maroon",
+    word: "hero.word.responsive",
+  },
+];

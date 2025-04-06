@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -34,6 +35,7 @@
   --font-code: "Source Code Pro", monospace;
   --font-quicksand: "Quicksand", sans-serif;
   --font-anonymous: "Anonymous Pro", monospace;
+  --font-petit-formal: "Petit Formal Script", cursive;
 
   --animate-blink: blink 1s infinite;
   --animate-hero: hero 1.5s cubic-bezier(0.87, 0, 0.13, 1);
@@ -58,4 +60,8 @@
       transform: scale(1) translateY(0);
     }
   }
+}
+
+* {
+  scroll-behavior: smooth;
 }

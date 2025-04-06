@@ -2,33 +2,31 @@
 import { Icon } from "astro-icon/components";
 
 import { getLangFromUrl, useTranslation } from "../../../../config";
+import HeroTitle from "./HeroTitle.astro";
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
-<section class="relative" id="hero">
+<section class="relative z-0" id="hero">
   <div
-    class="pt-4 pb-8 px-4 mx-auto min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center md:justify-start max-w-screen-xl text-center lg:py-16 lg:px-12"
+    class="z-10 pt-4 pb-8 px-4 mx-auto min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center md:justify-start max-w-screen-xl text-center lg:py-16 lg:px-12"
   >
     <p class="mb-8 text-lg text-subtext-0 lg:text-xl sm:px-16 xl:px-48">
       {t("home.hero.text.sm")}
     </p>
 
-    <h1
-      class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl"
-    >
-      {t("home.hero.text.lg")}
-    </h1>
+    <HeroTitle title="home.hero.text.lg" />
 
     <button
       class={`
-            mt-12 flex gap-2 items-center
-            border border-mauve rounded-lg
-            bg-crust px-4 py-2 text-lg w-fit
-            duration-250 transition-all
-            cursor-pointer
-            hover:bg-mauve hover:text-crust
-        `}
+        mt-12 flex gap-2 items-center
+        border border-mauve rounded-lg
+        bg-crust px-4 py-2 text-lg w-fit
+        duration-250 transition-all
+        cursor-pointer
+        hover:bg-mauve hover:text-crust
+      `}
+      onclick="scrollToTitleCard()"
     >
       {t("home.hero.action")}
 
@@ -36,3 +34,9 @@ const { t } = useTranslation({ language });
     </button>
   </div>
 </section>
+
+<script lang="js">
+  function scrollToTitleCard() {
+    document.getElementById("title-card")?.scrollIntoView();
+  }
+</script>

@@ -11,6 +11,8 @@ const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
+<span id="title-card"></span>
+
 <FakeTerminal>
   <hgroup class="flex flex-col gap-8 md:w-[50%]" id="text-group">
     <h1

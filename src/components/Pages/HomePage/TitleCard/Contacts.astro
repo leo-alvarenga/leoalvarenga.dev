@@ -31,7 +31,7 @@ const contactClasses = {
     group-active:max-w-12
     group-hover:max-w-12
   `,
-  text: "group-hover:underline text-center",
+  text: "text-center",
 };
 ---
 
@@ -56,7 +56,9 @@ const contactClasses = {
     {
       CONTACTS.map(({ href, icon, label }) => (
         <a class={contactClasses.anchor} href={href} target="_blank">
-          <span class={contactClasses.text}>{t(label)}</span>
+          <span class={`${contactClasses.text} group-hover:underline`}>
+            {t(label)}
+          </span>
 
           <i class={icon} />
         </a>

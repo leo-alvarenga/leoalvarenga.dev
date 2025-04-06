@@ -1,0 +1,47 @@
+---
+import { getLangFromUrl, useTranslation } from "../../../../config";
+import { HERO_HIGHLIGHTED_WORDS } from "../../../../utils";
+
+interface Props {
+  title: string;
+}
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const { title } = Astro.props;
+const words = t(title).split(" ");
+
+const getStyle = (word: string) => {
+  return HERO_HIGHLIGHTED_WORDS.find((w) => t(w.word) === word)?.style;
+};
+---
+
+<h1
+  class={`
+    mb-4 text-4xl font-bold
+    tracking-tight leading-12
+    md:text-4xl lg:text-5xl
+    flex flex-wrap gap-3
+    items-center justify-center text-center
+  `}
+>
+  {
+    words.map((word) => {
+      const cleanWord = word.replaceAll(",", "");
+
+      const match = HERO_HIGHLIGHTED_WORDS.find((w) => t(w.word) === cleanWord);
+      if (!match) return <span>{word}</span>;
+
+      return (
+        <span class="inline-flex gap-0">
+          <span class={`duration-250 transition-all ${getStyle(cleanWord)}`}>
+            {cleanWord}
+          </span>
+
+          {word.endsWith(",") && <span>,</span>}
+        </span>
+      );
+    })
+  }
+</h1>
