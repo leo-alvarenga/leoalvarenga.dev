@@ -145,6 +145,18 @@ export const SKILLS: Skill[] = [
   {
     front: {
       bg: "var(--color-crust)",
+      content: "devicon-astro-plain colored",
+    },
+    back: {
+      bg: "var(--color-crust)",
+      content: "Astro.js",
+      text: "#ff5e00",
+    },
+    id: "astro",
+  },
+  {
+    front: {
+      bg: "var(--color-crust)",
       content: "devicon-svelte-plain colored",
     },
     back: {

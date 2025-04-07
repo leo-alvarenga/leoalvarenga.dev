@@ -3,14 +3,16 @@ import Navbar from "../components/Navbar/Navbar.astro";
 import Layout from "./Layout.astro";
 import { pageTitleToId } from "../utils";
 import LanguageSelector from "../components/LanguageSelector.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   className?: string;
+  disableFooter?: boolean;
   disableNavbar?: boolean;
   pageTitle?: string;
 }
 
-const { className = "", disableNavbar, pageTitle } = Astro.props;
+const { className = "", disableFooter, disableNavbar, pageTitle } = Astro.props;
 ---
 
 <Layout pageTitle={pageTitle}>
@@ -30,4 +32,6 @@ const { className = "", disableNavbar, pageTitle } = Astro.props;
   </main>
 
   <LanguageSelector />
+
+  {!disableFooter && <Footer />}
 </Layout>

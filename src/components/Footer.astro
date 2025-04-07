@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslation } from "../config";
+import { FOOTER_LINKS } from "../utils";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const text = t("footer.text");
+const words = text.split(" ");
+---
+
+<section
+  class="mt-12 w-full flex items-center justify-center p-4 bg-crust"
+  id="footer"
+>
+  <span
+    class={`
+      flex gap-1 md:w-[80%] lg:w-[60%]
+      justify-center flex-wrap
+      items-center text-center
+      text-subtext-1 text-sm
+    `}
+  >
+    {
+      words.map((word) => {
+        const cleanWord = word.replaceAll(",", "");
+
+        const match = FOOTER_LINKS.find((w) => t(w.word) === cleanWord);
+        if (!match) return <span>{word}</span>;
+
+        return (
+          <a href={match.href} style={`color: ${match.color};`}>
+            <span class="inline-flex gap-1 items-center">
+              <span>{match.word}</span>
+              <i class={match.icon} />
+            </span>
+          </a>
+        );
+      })
+    }
+  </span>
+</section>

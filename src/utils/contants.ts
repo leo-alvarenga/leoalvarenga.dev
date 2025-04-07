@@ -56,11 +56,26 @@ export const HERO_HIGHLIGHTED_WORDS = [
     word: "hero.word.beautiful",
   },
   {
-    style: "text-blue italic font-anonymous", // add cursive or curly font
+    style: "text-blue italic font-anonymous",
     word: "hero.word.personality",
   },
   {
     style: "text-maroon",
     word: "hero.word.responsive",
+  },
+];
+
+export const FOOTER_LINKS = [
+  {
+    color: "#ff5e00",
+    href: "https://astro.build/",
+    icon: "devicon-astro-plain",
+    word: "Astro.js",
+  },
+  {
+    color: "#39bef7",
+    href: "https://tailwindcss.com/",
+    icon: "devicon-tailwindcss-original",
+    word: "TailwindCSS",
   },
 ];
