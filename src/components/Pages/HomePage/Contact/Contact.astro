@@ -14,12 +14,12 @@ const { t } = useTranslation({ language });
 ---
 
 <Section
-  className="w-full md:w-[60%] flex flex-col gap-12 items-center pt-24"
+  className="w-full md:w-[60%] flex flex-col gap-12 items-center pt-24 overflow-hidden"
   id="contact"
 >
   <h1 class="font-bold text-4xl">{t("home.contact.title")}</h1>
 
-  <div class="flex flex-col items-center gap-4 grow p-4">
+  <div class="flex flex-col items-center gap-4 w-full p-4">
     <div class="flex items-center gap-4 w-full flex-wrap">
       <button
         class={`
