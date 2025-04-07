@@ -87,27 +87,9 @@ const { location, name, page } = company;
       </span>
     </hgroup>
 
-    <div class="flex flex-col items-start w-full gap-1">
-      <span
-        class="transition-all duration-200 ease-in-out line-clamp-2"
-        id="xp-desc"
-      >
-        {translatableTextToString(description, language)}
-      </span>
-
-      <button
-        class="text-mauve font-bold cursor-pointer"
-        onclick="toggleDescription(this)"
-      >
-        <span id="xp-desc-expand">
-          {t("commons.expand")}
-        </span>
-
-        <span class="hidden" id="xp-desc-hide">
-          {t("commons.hide")}
-        </span>
-      </button>
-    </div>
+    <p class="text-subtext-1">
+      {translatableTextToString(description, language)}
+    </p>
 
     <div class="flex gap-2 flex-wrap items-center justify-start">
       {
@@ -120,29 +102,3 @@ const { location, name, page } = company;
     </div>
   </div>
 </div>
-
-<script lang="js">
-  function toggleDescription(target) {
-    const desc = target?.parentElement?.querySelector("#xp-desc");
-    const expandText = target.querySelector("#xp-desc-expand");
-    const hideText = target.querySelector("#xp-desc-hide");
-
-    if (!desc) return;
-
-    const lineClamp = "line-clamp-2";
-    const isCollapsed = desc.className.includes(lineClamp);
-
-    if (isCollapsed) {
-      desc.className = desc.className.replace(lineClamp, "");
-
-      expandText.className = expandText.className.concat(" hidden");
-      hideText.className = hideText.className.replace("hidden", "");
-
-      return;
-    }
-
-    desc.className = desc.className.concat(lineClamp);
-    expandText.className = expandText.className.replace("hidden", "");
-    hideText.className = hideText.className.concat(" hidden");
-  }
-</script>
