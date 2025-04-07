@@ -1,6 +1,11 @@
 import dayjs from "dayjs";
+
+import en from "dayjs/locale/en";
+import pt from "dayjs/locale/pt";
+
 import { DEFAULT_LANG, useTranslation } from "../config";
 import { DEFAULT_DATE_FORMAT } from "./contants";
+import { capitalize } from "./text";
 
 export type DateLikeObj = {
   start: string;
@@ -13,15 +18,18 @@ export function formatDate(
   fallback?: string,
 ) {
   const { t } = useTranslation({ language });
+  const locale = language.split("-")[0];
 
   try {
     const { start, end } = obj;
 
-    const a = dayjs(start).format(DEFAULT_DATE_FORMAT);
+    const a = capitalize(
+      dayjs(start).locale(locale).format(DEFAULT_DATE_FORMAT),
+    );
     let b = "";
 
     if (end?.length) {
-      b = dayjs(end).format(DEFAULT_DATE_FORMAT);
+      b = capitalize(dayjs(end).locale(locale).format(DEFAULT_DATE_FORMAT));
     } else if (fallback) {
       b = t(fallback);
     }

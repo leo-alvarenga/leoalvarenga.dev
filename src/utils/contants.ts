@@ -14,7 +14,7 @@ import { Language } from "../config";
 export const PAGE_TITLE_PREFFIX = "Leonardo Alvarenga";
 export const DEFAULT_PAGE_TITLE = `${PAGE_TITLE_PREFFIX} - Frontend Software Engineer`;
 
-export const DEFAULT_DATE_FORMAT = "MMMM, YYYY";
+export const DEFAULT_DATE_FORMAT = "MMM, YYYY";
 
 export const EMAIL_FOR_CONTACT = "leonardo.a.alvarenga@gmail.com";
 

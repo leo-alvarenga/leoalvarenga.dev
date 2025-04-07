@@ -1,8 +1,14 @@
 ---
+import { EXPERIENCES } from "../../../../data";
 import Section from "../../../Section.astro";
 import SectionTitle from "../../../SectionTitle.astro";
+import XpEntry from "./XpEntry.astro";
 ---
 
 <Section className="flex flex-col gap-8 pt-12" id="xp">
   <SectionTitle title="home.xp.title" />
+
+  <div class="flex flex-col items-start w-full px-4">
+    {EXPERIENCES.map((xp) => <XpEntry xp={xp} />)}
+  </div>
 </Section>

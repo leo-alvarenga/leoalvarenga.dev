@@ -56,6 +56,26 @@ export const TECH_MAP: Record<string, Technology> = {
     color: "#0078d4",
     label: "Azure DevOps",
   },
+  firebase: {
+    color: "#ffa200",
+    label: "Firebase",
+  },
+  nodejs: {
+    color: "#5cad47",
+    label: "Node.js",
+  },
+  express: {
+    color: "#000000",
+    label: "Express",
+  },
+  antd: {
+    color: "#0078d4",
+    label: "Antd",
+  },
+  storybook: {
+    color: "#0078d4",
+    label: "Storybook,js",
+  },
 };
 
 export const TECHNOLOGIES = Object.values(TECH_MAP);

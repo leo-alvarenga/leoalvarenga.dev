@@ -1,0 +1,148 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { getLangFromUrl, useTranslation } from "../../../../config";
+import type { Xp } from "../../../../data";
+import { formatDate, translatableTextToString } from "../../../../utils";
+
+interface Props {
+  xp: Xp;
+}
+
+const { xp } = Astro.props;
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const { company, description, icon, position, stack } = xp;
+const { location, name, page } = company;
+---
+
+<div
+  class="flex items-center gap-12 w-full border-l border-l-red pl-8 py-4 relative"
+>
+  <span
+    class="absolute left-[-14px] border-2 aspect-square flex items-center justify-center rotate-45 border-red p-1 rounded-md text-xs bg-crust"
+  >
+    <Icon class="-rotate-45" name={icon} />
+  </span>
+
+  <div
+    class={`
+        flex flex-col w-full
+        gap-6 items-start
+        bg-crust border p-4
+        border-mauve rounded-lg
+      `}
+  >
+    <hgroup class="flex flex-col gap-2 w-full items-start">
+      <div
+        class={`
+          flex flex-col
+          items-start gap-2
+          lg:flex-row lg:gap-4
+          lg:items-center lg:justify-between  
+          w-full text-xl
+        `}
+      >
+        <h4>
+          <span class="font-bold">
+            {translatableTextToString(position, language)}
+          </span>
+
+          <span>
+            @{translatableTextToString(name, language)}
+          </span>
+        </h4>
+
+        <span class="italic">
+          {formatDate(xp, language, "commons.present")}
+        </span>
+      </div>
+
+      <span
+        class={`
+          flex gap-4 items-center
+          w-full text-start
+          text-sm text-subtext-1
+        `}
+      >
+        <h5 class="flex gap-2 items-center">
+          <Icon class="text-mauve" name="fa6-solid:location-dot" />
+
+          <span>
+            {translatableTextToString(location, language)}
+          </span>
+        </h5>
+
+        <a
+          class="flex gap-2 items-center duration-200 transition-all hover:text-mauve"
+          href={page}
+        >
+          <span class="underline">
+            {page.split("//")[1]}
+          </span>
+
+          <Icon name="fa6-solid:arrow-up-right-from-square" />
+        </a>
+      </span>
+    </hgroup>
+
+    <div class="flex flex-col items-start w-full gap-1">
+      <span
+        class="transition-all duration-200 ease-in-out line-clamp-2"
+        id="xp-desc"
+      >
+        {translatableTextToString(description, language)}
+      </span>
+
+      <button
+        class="text-mauve font-bold cursor-pointer"
+        onclick="toggleDescription(this)"
+      >
+        <span id="xp-desc-expand">
+          {t("commons.expand")}
+        </span>
+
+        <span class="hidden" id="xp-desc-hide">
+          {t("commons.hide")}
+        </span>
+      </button>
+    </div>
+
+    <div class="flex gap-2 flex-wrap items-center justify-start">
+      {
+        stack.map(({ label }) => (
+          <span class="text-xs text-crust px-2 py-1 bg-mauve rounded-full">
+            {label}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script lang="js">
+  function toggleDescription(target) {
+    const desc = target?.parentElement?.querySelector("#xp-desc");
+    const expandText = target.querySelector("#xp-desc-expand");
+    const hideText = target.querySelector("#xp-desc-hide");
+
+    if (!desc) return;
+
+    const lineClamp = "line-clamp-2";
+    const isCollapsed = desc.className.includes(lineClamp);
+
+    if (isCollapsed) {
+      desc.className = desc.className.replace(lineClamp, "");
+
+      expandText.className = expandText.className.concat(" hidden");
+      hideText.className = hideText.className.replace("hidden", "");
+
+      return;
+    }
+
+    desc.className = desc.className.concat(lineClamp);
+    expandText.className = expandText.className.replace("hidden", "");
+    hideText.className = hideText.className.concat(" hidden");
+  }
+</script>
