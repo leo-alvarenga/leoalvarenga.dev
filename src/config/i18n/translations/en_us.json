@@ -20,7 +20,7 @@
   "home.titlecard.email.action.success": "Email address copied to the clipboard!",
 
   "home.hero.text.sm": "Hey, I'm Leo Alvarenga!",
-  "home.hero.text.lg": "Developing beautiful, responsive, and personality-filled interfaces.",
+  "home.hero.text.lg": "I develop beautiful, responsive, and personality-filled interfaces.",
   "home.hero.action": "See more",
   "hero.word.beautiful": "beautiful",
   "hero.word.personality": "personality-filled",
@@ -28,6 +28,10 @@
   "home.xp.title": "Experience",
   "home.skills.title": "Skills",
   "home.projects.title": "Projects",
+  "home.contact.title": "Contact me!",
+  "home.contact.cv.action": "Download my CV",
+  "home.contact.email.action": "Email me",
+  "home.contact.email.tip": "Click to copy to your clipboard",
 
   "404.title": "404 Error - Page Out of Orbit",
   "404.meta.title": "Page not found",

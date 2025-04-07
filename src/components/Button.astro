@@ -1,0 +1,23 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "" } = Astro.props;
+---
+
+<span
+  class={`
+    rounded-lg grow
+    border border-mauve
+    bg-crust flex gap-4
+    items-center duration-250
+    transition-all cursor-pointer
+    hover:bg-mauve hover:text-crust
+    group justify-center text-center
+    overflow-ellipsis whitespace-nowrap
+    overflow-hidden ${className}
+  `}
+>
+  <slot />
+</span>

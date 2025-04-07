@@ -20,7 +20,7 @@
   "home.titlecard.email.action.success": "Endereço de email copiado para a área de transferência!",
 
   "home.hero.text.sm": "Olá, eu sou Leo Alvarenga!",
-  "home.hero.text.lg": "Desenvolvendo interfaces bonitas, responsivas e cheias de personalidade",
+  "home.hero.text.lg": "Eu desenvolvo interfaces bonitas, responsivas e cheias de personalidade",
   "home.hero.action": "Saiba mais",
   "hero.word.beautiful": "bonitas",
   "hero.word.personality": "personalidade",
@@ -28,6 +28,10 @@
   "home.xp.title": "Experiência",
   "home.skills.title": "Skills",
   "home.projects.title": "Projetos",
+  "home.contact.title": "Entre em contato!",
+  "home.contact.cv.action": "Baixe meu currículo",
+  "home.contact.email.action": "Me envie um email",
+  "home.contact.email.tip": "Clique para copiar para a área de transferência",
 
   "404.title": "Erro 404 - Página fora de órbita",
   "404.meta.title": "Página não encontrada",

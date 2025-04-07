@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+
+import { getLangFromUrl, useTranslation } from "../../../../config";
+import { EMAIL_FOR_CONTACT } from "../../../../utils";
+import Section from "../../../Section.astro";
+import pfp from "../../../../assets/pfp.jpeg";
+import Button from "../../../Button.astro";
+import { CONTACTS } from "../../../../data";
+import { Image } from "astro:assets";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+---
+
+<Section
+  className="w-full md:w-[60%] flex flex-col gap-12 items-center pt-24"
+  id="contact"
+>
+  <h1 class="font-bold text-4xl">{t("home.contact.title")}</h1>
+
+  <div class="flex flex-col items-center gap-4 grow p-4">
+    <div class="flex items-center gap-4 w-full flex-wrap">
+      <button
+        class={`
+            px-4 py-2 rounded-lg
+            border border-green
+            bg-crust flex gap-4
+            items-center duration-250
+            transition-all group grow
+            cursor-pointer text-xl
+            justify-center text-center
+            overflow-hidden
+          `}
+        title={t("home.contact.email.tip")}
+      >
+        <span
+          class="text-subtext-0 group-hover:text-green overflow-ellipsis whitespace-nowrap overflow-hidden"
+        >
+          {EMAIL_FOR_CONTACT}
+        </span>
+
+        <Icon class="group-hover:text-green" name="fa6-solid:copy" />
+      </button>
+
+      <Button className="text-xl">
+        <a
+          class="px-4 py-2 w-full h-full group-hover:underline"
+          href={`mailto:${EMAIL_FOR_CONTACT}`}
+        >
+          {t("home.contact.email.action")}
+        </a>
+      </Button>
+    </div>
+
+    <div class="flex items-center gap-4 w-full flex-wrap-reverse">
+      {
+        CONTACTS.map(({ download, href, icon, isDevIcon, label }) => (
+          <Button className="grow text-xl !p-0">
+            <a
+              class="px-4 py-2 w-full h-full inline-flex gap-4 items-center justify-center"
+              download={download}
+              href={href.replace("{{language}}", language)}
+            >
+              <span class="group-hover:underline">{t(label)}</span>
+
+              {isDevIcon ? <i class={icon} /> : <Icon name={icon} />}
+            </a>
+          </Button>
+        ))
+      }
+    </div>
+  </div>
+</Section>
