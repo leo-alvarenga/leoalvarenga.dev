@@ -57,17 +57,22 @@ export const PROJECTS: Project[] = [
   {
     description: {
       [Language.english]:
-        "A small and dead simple web app template based on an API Rest built using Bun and ElysiaJS that serves static pages with internalization without overhead.",
+        "Latest version of my personal web page, made using Astro.js",
       [Language.portugues]:
-        "Um pequeno e simples template para webapps baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
+        "Versão mais atual da minha página web pessoal, feita com Astro.js",
     },
-    icon: "server",
-    name: "bej",
-    preview: "a",
-    repo: "a",
-    stack: [TECH_MAP.bun, TECH_MAP.ts],
+    icon: "",
+    name: "leoalvarenga.dev",
+    preview: "",
+    repo: "https://github.com/leo-alvarenga/leoalvarenga.dev",
+    stack: [
+      TECH_MAP.svelte,
+      TECH_MAP.sveltekit,
+      TECH_MAP.tailwindcss,
+      TECH_MAP.ts,
+    ],
     status: ProjectStatus.archived,
-    tags: [ProjectTag.backend, ProjectTag.frontend],
+    tags: [ProjectTag.frontend],
   },
   {
     description: {
@@ -79,15 +84,30 @@ export const PROJECTS: Project[] = [
     icon: "",
     name: "svelte-leoalvarenga.dev",
     preview: "",
-    repo: "",
+    repo: "https://github.com/leo-alvarenga/svelte-leoalvarenga.dev",
     stack: [
       TECH_MAP.svelte,
       TECH_MAP.sveltekit,
       TECH_MAP.tailwindcss,
       TECH_MAP.ts,
     ],
-    status: ProjectStatus.inactive,
+    status: ProjectStatus.archived,
     tags: [ProjectTag.frontend],
+  },
+  {
+    description: {
+      [Language.english]:
+        "A small and dead simple web app template based on an API Rest built using Bun and ElysiaJS that serves static pages with internalization without overhead.",
+      [Language.portugues]:
+        "Um pequeno e simples template para webapps baseado em uma API Rest, construído com Bun e ElysiaJS, que serve páginas estáticas com internacionalização sem complicações desnecessárias",
+    },
+    icon: "server",
+    name: "bej",
+    preview: "",
+    repo: "https://github.com/leo-alvarenga/bej",
+    stack: [TECH_MAP.bun, TECH_MAP.ts],
+    status: ProjectStatus.archived,
+    tags: [ProjectTag.backend, ProjectTag.frontend],
   },
 ];
 

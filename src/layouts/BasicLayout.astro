@@ -10,9 +10,16 @@ interface Props {
   disableFooter?: boolean;
   disableNavbar?: boolean;
   pageTitle?: string;
+  preventRefBehavior?: boolean;
 }
 
-const { className = "", disableFooter, disableNavbar, pageTitle } = Astro.props;
+const {
+  className = "",
+  disableFooter,
+  disableNavbar,
+  pageTitle,
+  preventRefBehavior,
+} = Astro.props;
 
 const pageId = pageTitleToId(pageTitle, "content");
 ---
@@ -37,17 +44,5 @@ const pageId = pageTitleToId(pageTitle, "content");
   <LanguageSelector />
 
   {!disableFooter && <Footer />}
+  {!preventRefBehavior && <script is:inline>setCurrentRef();</script>}
 </Layout>
-
-<script is:inline lang="js">
-  function handleBefore(event) {
-    const originalLoader = event.loader;
-
-    event.loader = async function () {
-      console.log("INnnnnnnnnnnnnn");
-      await originalLoader();
-    };
-  }
-
-  document.addEventListener("astro:before-preparation", handleBefore);
-</script>

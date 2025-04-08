@@ -36,6 +36,7 @@ const redirectTo = getAltUrl(url, language, redirectHref);
 <BasicLayout
   className="gap-8 md:p-0 md:w-[90%] lg:w-[60%]"
   pageTitle={t(pageTitle || "")}
+  preventRefBehavior
 >
   <div class="flex flex-col items-center gap-8 mt-12 mb-16 md:my-0">
     <hgroup class="flex flex-col items-center gap-4 text-center">
@@ -84,8 +85,47 @@ const redirectTo = getAltUrl(url, language, redirectHref);
   </a>
 </BasicLayout>
 
-<script is:inline src="/scripts/image.js"></script>
-
 <script is:inline>
+  function randInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  function shouldRecalculateImage() {
+    return getCurrentRef() !== location.pathname;
+  }
+
+  function toggleItem(item) {
+    if (typeof item !== "object" || typeof item.className !== "string") return;
+
+    item.classList.toggle("hidden");
+  }
+
+  function displayRandomImage() {
+    if (!shouldRecalculateImage()) return;
+
+    const images = Array.from(
+      document.querySelectorAll('[data-isimage="true"]')
+    );
+    if (!images?.length) return;
+
+    try {
+      toggleItem(images[randInt(images.length)]);
+    } catch (e) {
+      console.error("Could not display random image as intended...", e);
+
+      toggleItem(images[0]);
+    }
+
+    setCurrentRef();
+  }
+
+  function setupImageScript(interval = 200) {
+    document.addEventListener("before_page_ref", () => {
+      displayRandomImage();
+    });
+
+    setInterval(displayRandomImage, interval);
+  }
+
   setupImageScript();
 </script>
