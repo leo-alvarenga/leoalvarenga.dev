@@ -1,4 +1,6 @@
 ---
+import { slide } from "astro:transitions";
+
 interface Props {
   className?: string;
   id?: string;
@@ -7,6 +9,10 @@ interface Props {
 const { className, id } = Astro.props;
 ---
 
-<section class={`md:w-[90%] lg:w-[60%] ${className}`} id={id}>
+<section
+  class={`md:w-[90%] lg:w-[60%] ${className}`}
+  id={id}
+  transition:animate={slide({ duration: "0.4s" })}
+>
   <slot />
 </section>

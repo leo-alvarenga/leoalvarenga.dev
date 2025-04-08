@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
-import { getLangFromUrl, useTranslation } from "../../config";
+import { getAltUrl, getLangFromUrl, useTranslation } from "../../config";
 import BasicLayout from "../../layouts/BasicLayout.astro";
 import { STATUS_IMAGES } from "../../utils";
 
@@ -24,10 +24,13 @@ const {
   title,
 } = Astro.props;
 
-const [language] = getLangFromUrl(Astro.url);
+const { url } = Astro;
+const [language] = getLangFromUrl(url);
 const { t } = useTranslation({ language });
 
 const images = STATUS_IMAGES[kind];
+
+const redirectTo = getAltUrl(url, language, redirectHref);
 ---
 
 <BasicLayout
@@ -64,7 +67,7 @@ const images = STATUS_IMAGES[kind];
       duration:500 transition-all
       hover:bg-mauve hover:text-crust
     `}
-    href={redirectHref}
+    href={redirectTo}
   >
     <Icon name="fa6-solid:arrow-left" />
     <span class="group-hover:underline">{t(redirect)}</span>
@@ -82,3 +85,9 @@ const images = STATUS_IMAGES[kind];
 </BasicLayout>
 
 <script is:inline src="/scripts/image.js"></script>
+
+<script is:inline>
+  window.addEventListener("astro:after-swap", () => {
+    console.log("Ebaaa");
+  });
+</script>

@@ -4,13 +4,23 @@ import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslation } from "../../../../config";
 import HeroTitle from "./HeroTitle.astro";
 import Section from "../../../Section.astro";
+import { slide } from "astro:transitions";
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
 <Section className="lg:w-[80%] relative z-0" id="hero">
   <div
-    class="z-10 pt-4 pb-8 px-4 mx-auto min-h-[70vh] md:min-h-screen flex flex-col items-center justify-center md:justify-start max-w-screen-xl text-center lg:py-16 lg:px-12"
+    class={`
+      z-10 pt-4 pb-8 px-4
+      mx-auto min-h-[70vh]
+      md:min-h-screen flex
+      flex-col items-center
+      justify-center md:justify-start
+      max-w-screen-xl text-center
+      lg:py-16 lg:px-12
+    `}
+    transition:animate={slide({ duration: "0.4s" })}
   >
     <p class="mb-8 text-lg text-subtext-0 lg:text-xl sm:px-16 xl:px-48">
       {t("home.hero.text.sm")}
