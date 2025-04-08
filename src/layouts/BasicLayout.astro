@@ -13,6 +13,8 @@ interface Props {
 }
 
 const { className = "", disableFooter, disableNavbar, pageTitle } = Astro.props;
+
+const pageId = pageTitleToId(pageTitle, "content");
 ---
 
 <Layout pageTitle={pageTitle}>
@@ -26,7 +28,8 @@ const { className = "", disableFooter, disableNavbar, pageTitle } = Astro.props;
         relative items-center
         font-quicksand ${className}
     `}
-    id={pageTitleToId(pageTitle, "content")}
+    data-pageid={pageId}
+    id="page-content"
   >
     <slot />
   </main>
@@ -35,3 +38,16 @@ const { className = "", disableFooter, disableNavbar, pageTitle } = Astro.props;
 
   {!disableFooter && <Footer />}
 </Layout>
+
+<script is:inline lang="js">
+  function handleBefore(event) {
+    const originalLoader = event.loader;
+
+    event.loader = async function () {
+      console.log("INnnnnnnnnnnnnn");
+      await originalLoader();
+    };
+  }
+
+  document.addEventListener("astro:before-preparation", handleBefore);
+</script>
