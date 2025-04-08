@@ -13,7 +13,7 @@ const { url } = Astro;
 const [language, path] = getLangFromUrl(url);
 const { t } = useTranslation({ language });
 
-const commonClasses = "flex flex-row items-center";
+const commonClasses = "flex items-center";
 
 const getMenuItemClass = (baseHref: string) => {
   const actualPath = (
@@ -39,7 +39,9 @@ const getMenuItemClass = (baseHref: string) => {
 };
 ---
 
-<nav class={`w-full p-2 ${commonClasses} gap-4 justify-center overflow-hidden`}>
+<nav
+  class={`w-full p-2 ${commonClasses} gap-4 justify-center overflow-hidden relative`}
+>
   <div
     class={`
     ${commonClasses}
@@ -50,7 +52,13 @@ const getMenuItemClass = (baseHref: string) => {
   >
     <Brand />
 
-    <span class={`${commonClasses} group`}>
+    <span
+      class={`
+        ${commonClasses} group w-full
+        justify-center md:justify-end md:ml-auto
+        absolute left-0 md:static
+      `}
+    >
       {
         NAVBAR_LINKS.map(({ label, baseHref }) => (
           <a
