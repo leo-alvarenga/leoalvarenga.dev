@@ -4,22 +4,40 @@ import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslation } from "../../../../config";
 import { EMAIL_FOR_CONTACT } from "../../../../utils";
 import Section from "../../../Section.astro";
-import pfp from "../../../../assets/pfp.jpeg";
 import Button from "../../../Button.astro";
-import { CONTACTS } from "../../../../data";
-import { Image } from "astro:assets";
+import { CONTACTS, IS_AVAILABLE } from "../../../../data";
 
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
 <Section
-  className="w-full md:w-[60%] flex flex-col gap-12 items-center pt-24 overflow-hidden"
+  className="w-full md:w-[60%] flex flex-col gap-4 items-center pt-24 overflow-hidden"
   id="contact"
 >
   <h1 class="font-bold text-4xl">{t("home.contact.title")}</h1>
 
-  <div class="flex flex-col items-center gap-4 w-full p-4">
+  {
+    IS_AVAILABLE && (
+      <span
+        class={`
+          inline-flex items-center
+          gap-2 px-2 py-1 border
+          border-green rounded-full
+          text-sm font-bold
+        `}
+      >
+        <Icon
+          class="text-green animate-blink text-xs"
+          name="fa6-solid:circle"
+        />
+
+        <span>{t("home.contact.status")}</span>
+      </span>
+    )
+  }
+
+  <div class="flex flex-col items-center gap-4 w-full p-4 mt-12">
     <div class="flex items-center gap-4 w-full flex-wrap">
       <button
         class={`

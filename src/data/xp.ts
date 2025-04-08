@@ -41,8 +41,8 @@ export const EXPERIENCES: Xp[] = [
     },
     icon: "fa6-solid:code",
     position: {
-      [Language.english]: "Software Developer",
-      [Language.portugues]: "Desenvolvedor de Software",
+      [Language.english]: "Front-end Software Engineer",
+      [Language.portugues]: "Engenheiro de Software Front-end",
     },
     stack: [
       TECH_MAP.ts,
@@ -75,8 +75,8 @@ export const EXPERIENCES: Xp[] = [
     },
     icon: "fa6-solid:code",
     position: {
-      [Language.english]: "Intern Software Developer",
-      [Language.portugues]: "Desenvolvedor de Software Estagiário",
+      [Language.english]: "Intern Front-end Software Developer",
+      [Language.portugues]: "Desenvolvedor Front-end Estagiário",
     },
     stack: [
       TECH_MAP.ts,
