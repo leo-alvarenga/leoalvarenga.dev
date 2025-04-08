@@ -29,8 +29,9 @@ const { t } = useTranslation({ language });
 
     <HeroTitle title="home.hero.text.lg" />
 
-    <button
-      class={`
+    <span class="inline-flex gap-4 items-center justify-center">
+      <button
+        class={`
         mt-12 flex gap-2 items-center
         border border-mauve rounded-lg
         bg-crust px-4 py-2 text-lg w-fit
@@ -38,12 +39,26 @@ const { t } = useTranslation({ language });
         cursor-pointer
         hover:bg-mauve hover:text-crust
       `}
-      onclick="scrollToTitleCard()"
-    >
-      {t("home.hero.action")}
+        onclick="scrollToContact()"
+      >
+        {t("home.hero.action.contact")}
+      </button>
+      <button
+        class={`
+        mt-12 flex gap-2 items-center
+        border border-mauve rounded-lg
+        bg-crust px-4 py-2 text-lg w-fit
+        duration-250 transition-all
+        cursor-pointer
+        hover:bg-mauve hover:text-crust
+      `}
+        onclick="scrollToTitleCard()"
+      >
+        {t("home.hero.action.more")}
 
-      <Icon class="animate-bounce" name="fa6-solid:arrow-down" />
-    </button>
+        <Icon class="animate-bounce" name="fa6-solid:arrow-down" />
+      </button>
+    </span>
   </div>
 
   <span class="w-full h-full overflow-hidden absolute top-0 -z-10">
@@ -54,6 +69,10 @@ const { t } = useTranslation({ language });
 <script lang="js">
   function scrollToTitleCard() {
     document.getElementById("xp")?.scrollIntoView();
+  }
+
+  function scrollToContact() {
+    document.getElementById("contact")?.scrollIntoView();
   }
 </script>
 

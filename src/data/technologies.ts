@@ -8,6 +8,14 @@ export const TECH_MAP: Record<string, Technology> = {
     color: "#faefde",
     label: "Bun",
   },
+  css: {
+    color: "#3e90c7",
+    label: "CSS",
+  },
+  html: {
+    color: "#e64d27",
+    label: "HTML",
+  },
   js: {
     color: "#f0da4f",
     label: "JavaScript",
@@ -71,6 +79,14 @@ export const TECH_MAP: Record<string, Technology> = {
   antd: {
     color: "#0078d4",
     label: "Antd",
+  },
+  mui: {
+    color: "#1ea4c9",
+    label: "MUI",
+  },
+  golang: {
+    color: "#00abd6",
+    label: "Go",
   },
   storybook: {
     color: "#0078d4",

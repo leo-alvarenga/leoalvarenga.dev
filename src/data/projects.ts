@@ -72,6 +72,57 @@ export const PROJECTS: Project[] = [
   {
     description: {
       [Language.english]:
+        "A simple CR & CRA (brazilian GPA counterpart) calculator",
+      [Language.portugues]:
+        "Uma Calculadora de CR (Coeficiente de Rendimento) e CRA (Coeficiente de Rendimento Acumulado)",
+    },
+    icon: "calculator",
+    name: "Calculadora CR",
+    preview: "https://calculadora-cr.web.app/",
+    repo: "https://github.com/leo-alvarenga/calculadora-cr",
+    stack: [TECH_MAP.react, TECH_MAP.js, TECH_MAP.css],
+    status: ProjectStatus.archived,
+    tags: [ProjectTag.frontend],
+  },
+  {
+    description: {
+      [Language.english]:
+        "A simple MERN stack blog that aims at providing relevant info to uni students",
+      [Language.portugues]:
+        "Um blog simples com foco no auxílio ao estudante universitário contruído com o MERN stack",
+    },
+    icon: "graduation-cap",
+    name: "Guia do universitário",
+    preview: "",
+    repo: "https://github.com/leo-alvarenga/guia-do-universitario",
+    stack: [
+      TECH_MAP.react,
+      TECH_MAP.mui,
+      TECH_MAP.js,
+      TECH_MAP.nodejs,
+      TECH_MAP.express,
+    ],
+    status: ProjectStatus.archived,
+    tags: [ProjectTag.frontend, ProjectTag.backend],
+  },
+  {
+    description: {
+      [Language.english]:
+        "A powerful, lightweight and reliable CLI based to-do tracker capable of serving a web front-end locally",
+      [Language.portugues]:
+        "Um app poderoso, leve e confiável baseado em linha de comando para controle de tarefas capaz de servir um front-end web localmente",
+    },
+    icon: "terminal",
+    name: "To Go",
+    preview: "",
+    repo: "https://github.com/leo-alvarenga/to-go",
+    stack: [TECH_MAP.html, TECH_MAP.css, TECH_MAP.js, TECH_MAP.golang],
+    status: ProjectStatus.archived,
+    tags: [ProjectTag.frontend, ProjectTag.backend],
+  },
+  {
+    description: {
+      [Language.english]:
         "Reworked version of my personal web page using SvelteKit (1.20)",
       [Language.portugues]:
         "Versão retrabalhada da minha página web pessoal utilizando SvelteKit (1.20)",

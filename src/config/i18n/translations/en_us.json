@@ -25,7 +25,8 @@
 
   "home.hero.text.sm": "Hey, I'm Leo Alvarenga!",
   "home.hero.text.lg": "I develop beautiful, responsive, and personality-filled interfaces.",
-  "home.hero.action": "See more",
+  "home.hero.action.more": "See more",
+  "home.hero.action.contact": "Contact me",
   "hero.word.beautiful": "beautiful",
   "hero.word.personality": "personality-filled",
   "hero.word.responsive": "responsive",
