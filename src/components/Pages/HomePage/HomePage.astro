@@ -16,7 +16,10 @@ const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 ---
 
-<BasicLayout pageTitle={t("home.meta.title")}>
+<BasicLayout
+  openGraph={{ description: "home.hero.text.lg", pathname: "/" }}
+  pageTitle={t("home.meta.title")}
+>
   <link
     rel="stylesheet"
     type="text/css"

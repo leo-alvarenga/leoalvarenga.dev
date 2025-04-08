@@ -1,14 +1,21 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
-import { DEFAULT_PAGE_TITLE, PAGE_TITLE_PREFFIX } from "../utils";
+import {
+  DEFAULT_OPEN_GRAPH,
+  DEFAULT_PAGE_TITLE,
+  PAGE_TITLE_PREFFIX,
+  type OpenGraphOptions,
+} from "../utils";
 import { getLangFromUrl, useTranslation } from "../config";
+import OpenGraph from "../components/OpenGraph.astro";
 
 interface Props {
+  openGraph?: OpenGraphOptions;
   pageTitle?: string;
 }
 
-const { pageTitle } = Astro.props;
+const { openGraph, pageTitle } = Astro.props;
 
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
@@ -16,6 +23,11 @@ const { t } = useTranslation({ language });
 const title = pageTitle
   ? t(PAGE_TITLE_PREFFIX).trimEnd().concat(" - ", t(pageTitle))
   : DEFAULT_PAGE_TITLE;
+
+const openGraphOptions: OpenGraphOptions = {
+  ...(openGraph ?? DEFAULT_OPEN_GRAPH),
+  title,
+};
 ---
 
 <html lang="en">
@@ -35,6 +47,7 @@ const title = pageTitle
       media="(prefers-color-scheme: dark)"
     />
 
+    <OpenGraph options={openGraphOptions} />
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>

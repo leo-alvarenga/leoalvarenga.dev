@@ -1,7 +1,7 @@
 ---
 import Navbar from "../components/Navbar/Navbar.astro";
 import Layout from "./Layout.astro";
-import { pageTitleToId } from "../utils";
+import { pageTitleToId, type OpenGraphOptions } from "../utils";
 import LanguageSelector from "../components/LanguageSelector.astro";
 import Footer from "../components/Footer.astro";
 
@@ -9,6 +9,7 @@ interface Props {
   className?: string;
   disableFooter?: boolean;
   disableNavbar?: boolean;
+  openGraph?: OpenGraphOptions;
   pageTitle?: string;
   preventRefBehavior?: boolean;
 }
@@ -17,6 +18,7 @@ const {
   className = "",
   disableFooter,
   disableNavbar,
+  openGraph,
   pageTitle,
   preventRefBehavior,
 } = Astro.props;
@@ -24,7 +26,7 @@ const {
 const pageId = pageTitleToId(pageTitle, "content");
 ---
 
-<Layout pageTitle={pageTitle}>
+<Layout openGraph={openGraph} pageTitle={pageTitle}>
   {!disableNavbar && <Navbar />}
 
   <main

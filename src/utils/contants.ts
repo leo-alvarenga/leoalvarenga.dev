@@ -10,12 +10,14 @@ import inProgressRelaunch from "../assets/in_progress_relaunch.svg";
 import notFoundGalaxy from "../assets/not_found_galaxy.svg";
 import notFoundVoid from "../assets/not_found_void.svg";
 import { Language } from "../config";
+import type { OpenGraphOptions } from "./types";
 
 export const PAGE_TITLE_PREFFIX = "Leonardo Alvarenga";
 export const DEFAULT_PAGE_TITLE = `${PAGE_TITLE_PREFFIX} - Frontend Software Engineer`;
 
 export const DEFAULT_DATE_FORMAT = "MMM, YYYY";
 
+export const HOST_NAME = "https://leoalvarenga.dev";
 export const EMAIL_FOR_CONTACT = "leonardo.a.alvarenga@gmail.com";
 
 export const LANGUAGE_LABELS = {
@@ -79,3 +81,18 @@ export const FOOTER_LINKS = [
     word: "TailwindCSS",
   },
 ];
+
+export const DEFAULT_OPEN_GRAPH: OpenGraphOptions = {
+  author: "Leonardo A. Alvarenga",
+  title: "",
+  image: {
+    default: {
+      alt: "Default og image",
+      src: "/OpenGraphOptionsBase_en-us.png",
+    },
+    square: {
+      alt: "Default og square image",
+      src: "/OpenGraphOptionsBaseSquare.png",
+    },
+  },
+};
