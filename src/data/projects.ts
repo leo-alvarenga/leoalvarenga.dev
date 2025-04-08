@@ -63,15 +63,10 @@ export const PROJECTS: Project[] = [
     },
     icon: "",
     name: "leoalvarenga.dev",
-    preview: "",
+    preview: "#leoalvarenga.dev",
     repo: "https://github.com/leo-alvarenga/leoalvarenga.dev",
-    stack: [
-      TECH_MAP.svelte,
-      TECH_MAP.sveltekit,
-      TECH_MAP.tailwindcss,
-      TECH_MAP.ts,
-    ],
-    status: ProjectStatus.archived,
+    stack: [TECH_MAP.astro, TECH_MAP.tailwindcss, TECH_MAP.ts, TECH_MAP.js],
+    status: ProjectStatus.active,
     tags: [ProjectTag.frontend],
   },
   {

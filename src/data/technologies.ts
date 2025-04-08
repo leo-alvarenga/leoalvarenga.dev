@@ -76,6 +76,10 @@ export const TECH_MAP: Record<string, Technology> = {
     color: "#0078d4",
     label: "Storybook,js",
   },
+  astro: {
+    color: "#ff5e00",
+    label: "Astro.js",
+  },
 };
 
 export const TECHNOLOGIES = Object.values(TECH_MAP);

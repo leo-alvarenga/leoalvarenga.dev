@@ -1,17 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
 
-import { getLangFromUrl, useTranslation } from "../../../../../config";
+import {
+  getAltUrl,
+  getLangFromUrl,
+  useTranslation,
+} from "../../../../../config";
 
 interface Props {
   preview?: string;
   repo?: string;
 }
 
-const [language] = getLangFromUrl(Astro.url);
+const { props, url } = Astro;
+const [language] = getLangFromUrl(url);
 const { t } = useTranslation({ language });
 
-const { preview, repo } = Astro.props;
+const { preview, repo } = props;
 
 const getProjectActionClass = (disabled = false) => {
   const base = `
@@ -23,6 +28,7 @@ const getProjectActionClass = (disabled = false) => {
   if (disabled) {
     return base.concat(`
       opacity-40
+      pointer-events-none
       cursor-not-allowed
     `);
   }
@@ -33,12 +39,18 @@ const getProjectActionClass = (disabled = false) => {
     hover:text-crust group
   `);
 };
+
+const getSafeHref = (href = "/disabled") => {
+  if (!href.startsWith("/")) return href;
+
+  return getAltUrl(url, language, href) || "/";
+};
 ---
 
 <div class="flex gap-4 items-center">
   <a
     class={getProjectActionClass(!repo?.length)}
-    href={repo || "/"}
+    href={getSafeHref(repo)}
     target="_blank"
   >
     <span class="group-hover:underline">{t("commons.repository")}</span>
@@ -49,7 +61,7 @@ const getProjectActionClass = (disabled = false) => {
 
   <a
     class={getProjectActionClass(!preview?.length)}
-    href={preview || "/"}
+    href={getSafeHref(preview)}
     target="_blank"
   >
     <span class="group-hover:underline">{t("commons.preview")}</span>
