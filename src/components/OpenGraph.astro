@@ -15,7 +15,10 @@ const {
   author = "",
   title = "",
   description = "",
-  image,
+  image = {
+    default: DEFAULT_OPEN_GRAPH.image?.default,
+    square: DEFAULT_OPEN_GRAPH.image?.square,
+  },
   pathname = "/",
 } = { ...DEFAULT_OPEN_GRAPH, ...options };
 
