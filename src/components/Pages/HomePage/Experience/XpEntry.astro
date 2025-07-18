@@ -49,9 +49,7 @@ const { location, name, page } = company;
             {translatableTextToString(position, language)}
           </span>
 
-          <span>
-            @{translatableTextToString(name, language)}
-          </span>
+          {name && <span>@{translatableTextToString(name, language)}</span>}
         </h4>
 
         <span class="italic">
@@ -70,20 +68,26 @@ const { location, name, page } = company;
           <Icon class="text-mauve" name="fa6-solid:location-dot" />
 
           <span>
-            {translatableTextToString(location, language)}
+            {
+              location
+                ? translatableTextToString(location, language)
+                : t("commons.location.remote")
+            }
           </span>
         </h5>
 
-        <a
-          class="flex gap-2 items-center duration-200 transition-all hover:text-mauve"
-          href={page}
-        >
-          <span class="underline">
-            {page.split("//")[1]}
-          </span>
+        {
+          page && (
+            <a
+              class="flex gap-2 items-center duration-200 transition-all hover:text-mauve"
+              href={page}
+            >
+              <span class="underline">{page.split("//")[1]}</span>
 
-          <Icon name="fa6-solid:arrow-up-right-from-square" />
-        </a>
+              <Icon name="fa6-solid:arrow-up-right-from-square" />
+            </a>
+          )
+        }
       </span>
     </hgroup>
 

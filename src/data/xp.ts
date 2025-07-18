@@ -5,10 +5,10 @@ import type { COMPANY_LOGOS, TranslatableText } from "../utils";
 export type CompanyLogo = keyof typeof COMPANY_LOGOS;
 
 export type Company = {
-  name: TranslatableText;
-  logo: CompanyLogo;
-  page: string;
-  location: TranslatableText;
+  name?: TranslatableText;
+  logo?: CompanyLogo;
+  page?: string;
+  location?: TranslatableText;
 };
 
 export type Xp = {
@@ -23,6 +23,36 @@ export type Xp = {
 };
 
 export const EXPERIENCES: Xp[] = [
+  {
+    company: {},
+    description: {
+      [Language.english]:
+        "Design, development, and deployment of front-end web applications using a variety of tech stacks tailored to meet each client's specific needs. Additional responsibilities include implementing new features in existing applications, API integration, bug fixing, and front-end performance optimization",
+      [Language.portugues]:
+        "Concepção, implementação e provisionamento de aplicações web, utilizando diferentes stacks, de forma a melhor acomodar as necessidades do contratante. Responsabilidades adicionais incluem implementação de novas funcionalidades em aplicações já existentes, integração de APIs, correções de bugs e otimizações de desempenho no front-end",
+    },
+    icon: "fa6-solid:laptop-code",
+    position: {
+      [Language.english]: "Freelance FullStack Developer",
+      [Language.portugues]: "Desenvolvedor FullStack Freelancer",
+    },
+    stack: [
+      TECH_MAP.ts,
+      TECH_MAP.react,
+      TECH_MAP.next,
+      TECH_MAP.styledComponents,
+      TECH_MAP.tailwindcss,
+      TECH_MAP.mui,
+      TECH_MAP.nodejs,
+      TECH_MAP.express,
+      TECH_MAP.nest,
+      TECH_MAP.python,
+      TECH_MAP.fastapi,
+      TECH_MAP.postgresql,
+      TECH_MAP.firebase,
+    ],
+    start: "2022-10",
+  },
   {
     company: {
       name: "Vetta",

@@ -381,7 +381,30 @@ export const SKILLS: Skill[] = [
     },
     id: "git",
   },
+  {
+    front: {
+      bg: "var(--color-crust)",
+      content:
+        "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      isSrc: true,
+    },
+    back: {
+      bg: "#306998",
+      content: "Python",
+      text: "var(--color-text)",
+    },
+    id: "python",
+  },
+  {
+    front: {
+      bg: "var(--color-crust)",
+      content: "devicon-fastapi-plain colored",
+    },
+    back: {
+      bg: "var(--color-crust)",
+      content: "FastAPI",
+      text: "#049689",
+    },
+    id: "fastapi",
+  },
 ];
-
-//
-// https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg

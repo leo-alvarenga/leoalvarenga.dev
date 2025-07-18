@@ -96,6 +96,22 @@ export const TECH_MAP: Record<string, Technology> = {
     color: "#ff5e00",
     label: "Astro.js",
   },
+  next: {
+    color: "#000000",
+    label: "Next.js",
+  },
+  nest: {
+    color: "#de234f",
+    label: "Nest.js",
+  },
+  python: {
+    color: "#306998",
+    label: "Python",
+  },
+  fastapi: {
+    color: "#049689",
+    label: "FastAPI",
+  },
 };
 
 export const TECHNOLOGIES = Object.values(TECH_MAP);

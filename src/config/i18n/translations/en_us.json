@@ -12,6 +12,8 @@
   "commons.present": "Present",
   "commons.expand": "Expand",
   "commons.hide": "Hide",
+  "commons.location.remote": "Remote",
+  "commons.company.freelance": "Freelance",
 
   "nav.name": "Leo Alvarenga",
   "footer.text": "Written with care in VS Code, shaped with Astro.js and TailwindCSS, and launched into the digital cosmos from my own little corner of the web",
@@ -24,7 +26,7 @@
   "home.titlecard.email.action.success": "Email address copied to the clipboard!",
 
   "home.hero.text.sm": "Hey, I'm Leo Alvarenga!",
-  "home.hero.text.lg": "I develop beautiful, responsive, and personality-filled interfaces.",
+  "home.hero.text.lg": "I develop beautiful, responsive, and personality-filled applications",
   "home.hero.action.more": "See more",
   "home.hero.action.contact": "Contact me",
   "hero.word.beautiful": "beautiful",
