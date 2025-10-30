@@ -54,12 +54,16 @@ export const NAVBAR_LINKS = [
 
 export const HERO_HIGHLIGHTED_WORDS = [
   {
-    style: "text-peach font-light font-petit-formal",
-    word: "hero.word.beautiful",
+    style: "text-green font-light font-petit-formal",
+    word: "hero.word.concept",
   },
   {
-    style: "text-blue italic font-anonymous",
-    word: "hero.word.personality",
+    style: "text-blue font-audiowide",
+    word: "hero.word.cloud",
+  },
+  {
+    style: "text-peach font-anonymous",
+    word: "hero.word.scalable",
   },
   {
     style: "text-maroon",
