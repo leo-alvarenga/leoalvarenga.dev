@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import { getAltUrl, getLangFromUrl, useTranslation } from "../../config";
 import BasicLayout from "../../layouts/BasicLayout.astro";
+import Button from "../Button.astro";
 import { STATUS_IMAGES } from "../../utils";
 
 interface Props {
@@ -60,29 +61,27 @@ const redirectTo = getAltUrl(url, language, redirectHref);
     ))
   }
 
-  <a
-    class={`
-      flex gap-4 px-4 py-2
-      items-center bg-crust group
-      rounded-lg border border-mauve
-      duration:500 transition-all
-      hover:bg-mauve hover:text-crust
-    `}
-    href={redirectTo}
-  >
-    <Icon name="fa6-solid:arrow-left" />
-    <span class="group-hover:underline">{t(redirect)}</span>
+  <Button className={`
+    px-4 py-2 group grow-0 rounded-lg
+    duration:500 transition-all
+    hover:bg-mauve hover:text-crust
+  `}
+>
+    <a class="flex items-center gap-4" href={redirectTo}>
+      <Icon name="fa6-solid:arrow-left" />
+      <span class="group-hover:underline">{t(redirect)}</span>
 
-    <Icon
-      class={`
-        -rotate-180 animate-blink
-        max-w-0 overflow-hidden
-        group-hover:max-w-8
-        duration-250 transition-all
-      `}
-      name="fa6-solid:shuttle-space"
-    />
-  </a>
+      <Icon
+        class={`
+          -rotate-180 animate-blink
+          max-w-0 overflow-hidden
+          group-hover:max-w-8
+          duration-250 transition-all
+        `}
+        name="fa6-solid:shuttle-space"
+      />
+    </a>
+  </Button>
 </BasicLayout>
 
 <script is:inline>

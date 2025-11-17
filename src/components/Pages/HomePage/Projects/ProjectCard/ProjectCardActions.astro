@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import Button from "../../../../Button.astro";
 
 import {
   getAltUrl,
@@ -19,25 +20,13 @@ const { t } = useTranslation({ language });
 const { preview, repo } = props;
 
 const getProjectActionClass = (disabled = false) => {
-  const base = `
-    flex gap-2 items-center
-    px-2 py-1 border border-mauve
-    rounded-md
-  `;
+  const base = "grow-0 px-4 py-2";
 
   if (disabled) {
-    return base.concat(`
-      opacity-40
-      pointer-events-none
-      cursor-not-allowed
-    `);
+  return base.concat(" grow-0 opacity-40 pointer-events-none cursor-not-allowed");
   }
 
-  return base.concat(`
-    duration-250 transition-all
-    bg-mantle hover:bg-mauve
-    hover:text-crust group
-  `);
+  return base.concat(" grow-0 bg-mantle");
 };
 
 const getSafeHref = (href = "/disabled") => {
@@ -48,25 +37,29 @@ const getSafeHref = (href = "/disabled") => {
 ---
 
 <div class="flex gap-4 items-center">
-  <a
-    class={getProjectActionClass(!repo?.length)}
-    href={getSafeHref(repo)}
-    target="_blank"
-  >
-    <span class="group-hover:underline">{t("commons.repository")}</span>
-    <span>
-      <i class="devicon-github-original text-lg"></i>
-    </span>
-  </a>
+  <Button className={getProjectActionClass(!repo?.length)}>
+    <a
+      class="inline-default"
+      href={getSafeHref(repo)}
+      target="_blank"
+    >
+      <span class="group-hover:underline">{t("commons.repository")}</span>
+      <span>
+        <i class="devicon-github-original text-lg"></i>
+      </span>
+    </a>
+  </Button>
 
-  <a
-    class={getProjectActionClass(!preview?.length)}
-    href={getSafeHref(preview)}
-    target="_blank"
-  >
-    <span class="group-hover:underline">{t("commons.preview")}</span>
-    <span>
-      <Icon name="fa6-solid:arrow-up-right-from-square" />
-    </span>
-  </a>
+  <Button className={getProjectActionClass(!preview?.length)}>
+    <a
+      class="inline-default"
+      href={getSafeHref(preview)}
+      target="_blank"
+    >
+      <span class="group-hover:underline">{t("commons.preview")}</span>
+      <span>
+        <Icon name="fa6-solid:arrow-up-right-from-square" />
+      </span>
+    </a>
+  </Button>
 </div>
