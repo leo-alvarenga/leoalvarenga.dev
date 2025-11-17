@@ -1,3 +1,4 @@
+import fitec from "../assets/NuPESSC_logo.png";
 import nupessc from "../assets/NuPESSC_logo.png";
 import vetta from "../assets/Vetta_logo.png";
 
@@ -33,6 +34,7 @@ export const LANGUAGE_HINTS = {
 export const COMPANY_LOGOS = {
   vetta,
   nupessc,
+  fitec,
 };
 
 export const STATUS_IMAGES = {
@@ -48,6 +50,7 @@ export const NAVBAR_LINKS = [
   },
   {
     label: "blog.title",
+    // baseHref: "https://shelldreams.dev/",
     baseHref: "/blog",
   },
 ];

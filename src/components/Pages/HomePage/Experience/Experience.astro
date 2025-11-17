@@ -1,8 +1,15 @@
 ---
+import { Icon } from "astro-icon/components";
+
+import { getLangFromUrl, useTranslation } from "../../../../config";
 import { EXPERIENCES } from "../../../../data";
+import Button from "../../../Button.astro";
 import Section from "../../../Section.astro";
 import SectionTitle from "../../../SectionTitle.astro";
 import XpEntry from "./XpEntry.astro";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
 ---
 
 <Section className="flex flex-col gap-8 pt-12" id="xp">
@@ -11,4 +18,31 @@ import XpEntry from "./XpEntry.astro";
   <div class="flex flex-col items-start w-full px-4">
     {EXPERIENCES.map((xp) => <XpEntry xp={xp} />)}
   </div>
+
+  <div class="flex flex-col items-center">
+    <Button>
+      <button
+        id="xp-entry-control"
+        class={`
+          flex gap-2 items-center
+          w-full h-full text-lg
+          px-4 py-2 cursor-pointer
+        `}
+      >
+        {t("home.hero.action.more")}
+
+          <Icon name="fa6-solid:arrow-down" />
+      </button>
+    </Button>
+  </div>
 </Section>
+
+<script>
+  const xp = {
+    displayAll: false,
+  };
+
+  const control = document.getElementById("xp-entry-control");
+
+  control?.addEventListener("click", () => xp.displayAll = !xp.displayAll, false);
+</script>

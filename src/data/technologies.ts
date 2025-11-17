@@ -60,6 +60,10 @@ export const TECH_MAP: Record<string, Technology> = {
     color: "rgb(50, 107, 230)",
     label: "Kubernetes",
   },
+  helm: {
+    color: "rgb(15, 22, 137)",
+    label: "Helm",
+  },
   azureDevOps: {
     color: "#0078d4",
     label: "Azure DevOps",
