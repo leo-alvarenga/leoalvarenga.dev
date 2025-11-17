@@ -66,7 +66,7 @@ export const HERO_HIGHLIGHTED_WORDS = [
   },
   {
     style: "text-maroon",
-    word: "hero.word.responsive",
+    word: "hero.word.scalable",
   },
 ];
 
