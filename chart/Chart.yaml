@@ -1,0 +1,6 @@
+apiVersion: v2
+name: leoalvarenga-dev
+description: Helm Chart for my personal portfolio deployment
+version: 0.0.1
+appVersion: "0.7.0"
+

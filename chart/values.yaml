@@ -1,0 +1,4 @@
+image: myimage:tag
+
+service:
+  targetPort: 5000
