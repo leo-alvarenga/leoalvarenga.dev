@@ -358,6 +358,18 @@ export const SKILLS: Skill[] = [
   {
     front: {
       bg: "var(--color-text)",
+      content: "devicon-helm-original colored",
+    },
+    back: {
+      bg: "#0F1689",
+      content: "Helm",
+      text: "var(--color-text)",
+    },
+    id: "helm",
+  },
+{
+    front: {
+      bg: "var(--color-text)",
       content: "devicon-azuredevops-plain colored",
     },
     back: {
