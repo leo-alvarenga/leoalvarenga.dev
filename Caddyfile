@@ -1,0 +1,24 @@
+:80 {
+    log {
+        output file /var/log/caddy/access.log
+        format json
+    }
+
+    root * /srv
+    file_server
+    encode gzip zstd
+
+    handle_errors {
+        @ptbr expression `{http.request.orig_uri}.startsWith("/pt-br/")`
+
+        handle @ptbr {
+            rewrite * /pt-br/404/index.html
+            file_server
+        }
+
+        rewrite * /404.html
+        file_server
+    }
+}
+
+

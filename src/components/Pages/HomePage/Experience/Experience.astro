@@ -1,14 +1,120 @@
 ---
+import { Icon } from "astro-icon/components";
+
+import { getLangFromUrl, useTranslation } from "../../../../config";
 import { EXPERIENCES } from "../../../../data";
+import Button from "../../../Button.astro";
 import Section from "../../../Section.astro";
 import SectionTitle from "../../../SectionTitle.astro";
 import XpEntry from "./XpEntry.astro";
+
+const [language] = getLangFromUrl(Astro.url);
+const { t } = useTranslation({ language });
+
+const visibleItemCount = 2;
 ---
 
 <Section className="flex flex-col gap-8 pt-12" id="xp">
   <SectionTitle title="home.xp.title" />
 
-  <div class="flex flex-col items-start w-full px-4">
-    {EXPERIENCES.map((xp) => <XpEntry xp={xp} />)}
+  <div class="flex flex-col items-start w-full px-4" id="xp-list">
+    {EXPERIENCES.map((xp, i) => <XpEntry toggleable={i > (visibleItemCount - 1)} xp={xp} />)}
+  </div>
+
+  <div class="flex flex-col items-center">
+    <Button>
+      <button
+        class={`
+          inline-default
+          w-full h-full text-sm
+          px-4 py-2 cursor-pointer
+        `}
+        id="xp-entry-control"
+        onclick="handleDisplayAllXpEntries()"
+      >
+        <span class="flex gap-2 items-center " data-xplabel="true">
+          {t("home.xp.action.more")}
+
+          <Icon name="fa6-solid:angles-down" />
+        </span>
+
+        <span class="flex gap-2 items-center hidden" data-xplabel="true">
+          {t("home.xp.action.less")}
+
+          <Icon name="fa6-solid:angles-up" />
+        </span>
+
+      </button>
+    </Button>
   </div>
 </Section>
+
+<script lang="js">
+  const xp = {
+    debug: true,
+    displayAll: false,
+  };
+
+  const control = document.getElementById("xp-entry-control");
+  const listWrapper = document.getElementById("xp-list");
+
+  function debug(messages, mode = 'log') {
+    if (!xp.debug) return;
+    if (typeof messages !== 'string' && typeof messages !== 'object') return;
+
+    if (console[mode]) {
+      console[mode]("[XP]", ...(Array.isArray(messages) ? messages : [messages]));
+
+      return;
+    }
+
+    console.log("[XP]", ...(Array.isArray(messages) ? messages : [messages]));
+  }
+
+  function handleDisplayAllXpEntries() {
+    try {
+      debug(`Previous value: ${xp.displayAll}; New: ${!xp.displayAll}`);
+      xp.displayAll = !xp.displayAll;
+
+      const xpEntries = listWrapper?.querySelectorAll("[data-xptoggleable='true']");
+
+      if (!xpEntries?.length) {
+        debug(`No xp entries found!`);
+
+        return;
+      }
+
+      for (const xp of xpEntries) {
+        debug(["Xp entry found!", xp]);
+
+        xp.classList.toggle("hidden");
+      }
+
+      const labels = control?.querySelectorAll("[data-xplabel='true']");
+      debug("Replacing label...");
+
+      for (const label of labels ?? []) {
+        label.classList.toggle("hidden");
+      }
+
+      if (!xp.displayAll) scrollToXp?.();
+    } catch (e) {
+      debug(e);
+    }
+  }
+
+  function setup() {
+    debug("Setting up");
+
+    if (listWrapper) {
+      debug("Wrapper found");
+
+      return;
+    }
+
+    debug("Wrapper not found");
+    control?.classList.toogle("hidden");
+  }
+
+  setup();
+</script>

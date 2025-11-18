@@ -1,5 +1,6 @@
 ---
 import type { Technology } from "../../../../../data";
+import TechnologyBadge from "../../../../TechnologyBadge.astro";
 
 interface Props {
   stack: Technology[];
@@ -10,14 +11,8 @@ const { stack } = Astro.props;
 
 <div class="flex flex-row flex-wrap gap-4 items-center">
   {
-    stack.map(({ color, label }) => (
-      <span class="flex flex-row gap-1 items-center">
-        <span
-          class="w-2 h-2 rounded-full"
-          style={`background-color: ${color};`}
-        />
-        <span>{label}</span>
-      </span>
+    stack.map((tech) => (
+      <TechnologyBadge tech={tech} enableBorder />
     ))
   }
 </div>

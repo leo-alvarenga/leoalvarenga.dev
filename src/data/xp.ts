@@ -24,34 +24,38 @@ export type Xp = {
 
 export const EXPERIENCES: Xp[] = [
   {
-    company: {},
+    company: {
+      name: "FITec Labs",
+      page: "https://fitec.org.br",
+      logo: "fitec",
+      location: {
+        [Language.english]: "Belo Horizonte, Brazil",
+        [Language.portugues]: "Belo Horizonte, MG",
+      },
+    },
     description: {
       [Language.english]:
-        "Design, development, and deployment of front-end web applications using a variety of tech stacks tailored to meet each client's specific needs. Additional responsibilities include implementing new features in existing applications, API integration, bug fixing, and front-end performance optimization",
+        "Development and automation of corporate web applications with emphasis on scalability, standardization, and infrastructure. Creation of IaC using Terraform, along with Helm Charts and Kubernetes manifests for provisioning and orchestration. Configuration and maintenance of CI/CD pipelines with GitHub Actions. Definition of development standards and implementation of git hooks. Design and maintenance of internal libraries and base applications in React, TypeScript, and TailwindCSS",
       [Language.portugues]:
-        "Concepção, implementação e provisionamento de aplicações web, utilizando diferentes stacks, de forma a melhor acomodar as necessidades do contratante. Responsabilidades adicionais incluem implementação de novas funcionalidades em aplicações já existentes, integração de APIs, correções de bugs e otimizações de desempenho no front-end",
+        "Desenvolvimento e automação de aplicações web corporativas com foco em escalabilidade, padronização e infraestrutura. Criação de IaC com Terraform, além de Helm Charts e manifestos Kubernetes para provisionamento e orquestração. Configuração e manutenção de pipelines CI/CD com GitHub Actions. Definição de padrões de desenvolvimento e implementação de git hooks. Concepção e manutenção de bibliotecas internas e aplicações em React, TypeScript e TailwindCSS",
     },
-    icon: "fa6-solid:laptop-code",
+    icon: "fa6-solid:screwdriver-wrench",
     position: {
-      [Language.english]: "Freelance FullStack Developer",
-      [Language.portugues]: "Desenvolvedor FullStack Freelancer",
+      [Language.english]: "Software Engineer",
+      [Language.portugues]: "Engenheiro de Software",
     },
     stack: [
       TECH_MAP.ts,
       TECH_MAP.react,
-      TECH_MAP.next,
-      TECH_MAP.styledComponents,
       TECH_MAP.tailwindcss,
-      TECH_MAP.mui,
-      TECH_MAP.nodejs,
-      TECH_MAP.express,
-      TECH_MAP.nest,
-      TECH_MAP.python,
-      TECH_MAP.fastapi,
+      TECH_MAP.storybook,
       TECH_MAP.postgresql,
-      TECH_MAP.firebase,
+      TECH_MAP.bash,
+      TECH_MAP.docker,
+      TECH_MAP.k8s,
+      TECH_MAP.helm,
     ],
-    start: "2022-10",
+    start: "2025-08",
   },
   {
     company: {
@@ -86,6 +90,38 @@ export const EXPERIENCES: Xp[] = [
       TECH_MAP.express,
     ],
     start: "2023-03",
+    end: "2025-07",
+  },
+  {
+    company: {},
+    description: {
+      [Language.english]:
+        "Design, development, and deployment of front-end web applications using a variety of tech stacks tailored to meet each client's specific needs. Additional responsibilities include implementing new features in existing applications, API integration, bug fixing, and front-end performance optimization",
+      [Language.portugues]:
+        "Concepção, implementação e provisionamento de aplicações web, utilizando diferentes stacks, de forma a melhor acomodar as necessidades do contratante. Responsabilidades adicionais incluem implementação de novas funcionalidades em aplicações já existentes, integração de APIs, correções de bugs e otimizações de desempenho no front-end",
+    },
+    icon: "fa6-solid:laptop-code",
+    position: {
+      [Language.english]: "Freelance FullStack Developer",
+      [Language.portugues]: "Desenvolvedor FullStack Freelancer",
+    },
+    stack: [
+      TECH_MAP.ts,
+      TECH_MAP.react,
+      TECH_MAP.next,
+      TECH_MAP.styledComponents,
+      TECH_MAP.tailwindcss,
+      TECH_MAP.mui,
+      TECH_MAP.nodejs,
+      TECH_MAP.express,
+      TECH_MAP.nest,
+      TECH_MAP.python,
+      TECH_MAP.fastapi,
+      TECH_MAP.postgresql,
+      TECH_MAP.firebase,
+    ],
+    start: "2022-10",
+    end: "2025-07",
   },
   {
     company: {

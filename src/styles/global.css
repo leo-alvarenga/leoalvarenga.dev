@@ -67,3 +67,8 @@
 * {
   scroll-behavior: smooth;
 }
+
+.inline-default {
+  @apply flex gap-2 items-center;
+}
+

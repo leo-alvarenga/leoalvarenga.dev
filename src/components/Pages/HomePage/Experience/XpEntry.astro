@@ -1,15 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import TechnologyBadge from "../../../TechnologyBadge.astro";
 import { getLangFromUrl, useTranslation } from "../../../../config";
 import type { Xp } from "../../../../data";
 import { formatDate, translatableTextToString } from "../../../../utils";
 
 interface Props {
+  toggleable?: boolean;
   xp: Xp;
 }
 
-const { xp } = Astro.props;
+const { toggleable, xp } = Astro.props;
 const [language] = getLangFromUrl(Astro.url);
 const { t } = useTranslation({ language });
 
@@ -18,7 +20,13 @@ const { location, name, page } = company;
 ---
 
 <div
-  class="flex items-center gap-12 w-full border-l border-l-red pl-8 py-4 relative"
+  class={`
+    flex items-center gap-12
+    w-full border-l border-l-red
+    pl-8 py-4 relative
+    ${toggleable ? "hidden" : ""}
+  `}
+  data-xptoggleable={String(toggleable || false)}
 >
   <span
     class="absolute left-[-14px] border-2 aspect-square flex items-center justify-center rotate-45 border-red p-1 rounded-md text-xs bg-crust"
@@ -30,8 +38,8 @@ const { location, name, page } = company;
     class={`
         flex flex-col w-full
         gap-6 items-start
-        bg-crust border p-4
-        border-mauve rounded-lg
+        bg-crust p-4
+        rounded-lg
       `}
   >
     <hgroup class="flex flex-col gap-2 w-full items-start">
@@ -64,7 +72,7 @@ const { location, name, page } = company;
           text-sm text-subtext-1
         `}
       >
-        <h5 class="flex gap-2 items-center">
+        <h5 class="inline-default">
           <Icon class="text-mauve" name="fa6-solid:location-dot" />
 
           <span>
@@ -79,7 +87,7 @@ const { location, name, page } = company;
         {
           page && (
             <a
-              class="flex gap-2 items-center duration-200 transition-all hover:text-mauve"
+              class="inline-default duration-200 transition-all hover:text-mauve"
               href={page}
             >
               <span class="underline">{page.split("//")[1]}</span>
@@ -97,10 +105,8 @@ const { location, name, page } = company;
 
     <div class="flex gap-2 flex-wrap items-center justify-start">
       {
-        stack.map(({ label }) => (
-          <span class="text-xs text-crust px-2 py-1 bg-mauve rounded-full">
-            {label}
-          </span>
+        stack.map((tech) => (
+          <TechnologyBadge tech={tech} enableBorder />
         ))
       }
     </div>

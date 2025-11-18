@@ -19,6 +19,8 @@ export function getLangFromUrl(url: URL): [Language, string] {
 }
 
 export function getAltUrl(url: URL, targetLanguage: Language, path?: string) {
+  if (path && path.startsWith("http")) return path;
+  
   const [lang, currentPath] = getLangFromUrl(url);
 
   let resultPath = (path || currentPath).replace(`/${lang}`, "");

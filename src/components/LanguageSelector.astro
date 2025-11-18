@@ -22,7 +22,6 @@ function getSortedLangs() {
   class={`
     p-2 bg-crust
     fixed bottom-4 left-4
-    border border-mauve
     flex flex-col cursor-pointer
     items-center rounded-lg
   `}
@@ -58,10 +57,10 @@ function getSortedLangs() {
         <button
           class={`
             ${i === 0 ? "mt-2" : ""}
-            border cursor-pointer
+            cursor-pointer
             rounded-md px-2 text-center
-            hover:border-green hover:text-subtext-0
-            ${lang === current ? "border-mauve" : "border-transparent"}
+            hover:bg-surface-0 hover:text-subtext-0
+            ${lang === current ? "underline" : ""}
           `}
           data-lang={lang}
           onclick="changeLanguage(this)"

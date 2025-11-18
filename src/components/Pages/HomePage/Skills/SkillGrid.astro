@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import { SKILLS } from "../../../../data";
 import SkillImage from "./SkillImage.astro";
 
@@ -25,13 +24,13 @@ const cardFaceClass = `
         <div
           class={`
               shadow-crust
-                relative h-full w-full
-                rounded-lg shadow-xl
-                border-mauve border
-                transition-all duration-700
-                [transform-style:preserve-3d]
-                group-hover:[transform:rotateY(180deg)]
-                group-active:[transform:rotateY(180deg)]
+              relative h-full w-full
+              rounded-lg shadow-xl
+              border-crust border
+              transition-all duration-700
+              [transform-style:preserve-3d]
+              group-hover:[transform:rotateY(180deg)]
+              group-active:[transform:rotateY(180deg)]
             `}
         >
           <div

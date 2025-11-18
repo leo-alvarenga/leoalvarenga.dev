@@ -34,6 +34,8 @@
   "hero.word.scalable": "production-ready",
   "hero.word.responsive": "responsive",
   "home.xp.title": "Experience",
+  "home.xp.action.more": "Show all",
+  "home.xp.action.less": "Show less",
   "home.skills.title": "Skills",
   "home.projects.title": "Projects",
   "home.contact.title": "Contact me!",
