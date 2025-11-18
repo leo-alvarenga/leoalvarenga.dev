@@ -1,4 +1,4 @@
-image: myimage:tag
+image: ghcr.io/leo-alvarenga/leoalvarenga-dev:latest
 
 service:
   targetPort: 5000
