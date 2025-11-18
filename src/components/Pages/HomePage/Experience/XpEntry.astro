@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 
+import TechnologyBadge from "../../../TechnologyBadge.astro";
 import { getLangFromUrl, useTranslation } from "../../../../config";
 import type { Xp } from "../../../../data";
 import { formatDate, translatableTextToString } from "../../../../utils";
@@ -104,14 +105,8 @@ const { location, name, page } = company;
 
     <div class="flex gap-2 flex-wrap items-center justify-start">
       {
-        stack.map(({ color, label }) => (
-          <span class="inline-default text-xs px-2 py-1 border border-mauve rounded-full">
-            <span class="inline-flex w-2 h-2 rounded-full" style={`background-color: ${color}`}></span>
-
-            <span>
-              {label}
-            </span>
-          </span>
+        stack.map((tech) => (
+          <TechnologyBadge tech={tech} enableBorder />
         ))
       }
     </div>
