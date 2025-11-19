@@ -1,4 +1,15 @@
-image: ghcr.io/leo-alvarenga/leoalvarenga-dev:latest
+image:
+  image: ghcr.io/leo-alvarenga/leoalvarenga-dev
+  tag: latest
 
 service:
   targetPort: 5000
+
+nightly:
+  enabled: true
+  service:
+    targetPort: 5001
+  image:
+    image: ghcr.io/leo-alvarenga/leoalvarenga-dev
+    tag: latest-nightly
+

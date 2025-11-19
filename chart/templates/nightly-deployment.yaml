@@ -1,13 +1,14 @@
+{{- if .Values.nightly.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "portfolio.name" . }}
+  name: {{ include "portfolio.name.nightly" . }}
   labels:
-    app: {{ include "portfolio.name" . }}
+    app: {{ include "portfolio.name.nightly" . }}
 spec:
   selector:
     matchLabels:
-      {{- include "portfolio.labels" . | nindent 6 }}
+      {{- include "portfolio.labels.nightly" . | nindent 6 }}
   replicas: 1
   strategy:
     rollingUpdate:
@@ -17,13 +18,13 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/default-container:  {{ include "portfolio.name" . }}
+        kubectl.kubernetes.io/default-container:  {{ include "portfolio.name.nightly" . }}
       labels:
-        {{- include "portfolio.labels" . | nindent 8 }}
+        {{- include "portfolio.labels.nightly" . | nindent 8 }}
     spec:
       containers:
-      - name: {{ include "portfolio.name" . }}
-        image: {{ .Values.image.image }}:{{ .Values.image.tag }}
+      - name: {{ include "portfolio.name.nightly" . }}
+        image: {{ .Values.nightly.image.image }}:{{ .Values.nightly.image.tag }}
         imagePullPolicy: Always
         resources:
           requests:
@@ -44,4 +45,4 @@ spec:
         - containerPort: 80
           name: http
       restartPolicy: Always
-
+{{- end }}

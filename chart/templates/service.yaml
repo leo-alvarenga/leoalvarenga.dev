@@ -1,14 +1,13 @@
-# https://kubernetes.io/docs/concepts/services-networking/service/
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.name }}
+  name: {{ include "portfolio.name" . }}
 spec:
   selector:
-    app: {{ .Release.name }}
+    {{- include "portfolio.labels" . | nindent 4 }}
   type: ClusterIP
   ports:
-  - name: {{ .Release.name }}
+  - name: {{ include "portfolio.name" . }}
     protocol: 
     port: 80
     targetPort: {{ .Values.service.targetPort }}
