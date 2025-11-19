@@ -1,0 +1,15 @@
+{{- if .Values.nightly.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "portfolio.name.nightly" . }}
+spec:
+  selector:
+    {{- include "portfolio.labels.nightly" . | nindent 4 }}
+  type: ClusterIP
+  ports:
+  - name: {{ include "portfolio.name.nightly" . }}
+    protocol: 
+    port: 80
+    targetPort: {{ .Values.nightly.service.targetPort }}
+{{- end }}
