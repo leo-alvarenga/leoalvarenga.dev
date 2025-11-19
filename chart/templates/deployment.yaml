@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.name }}
+  name: {{ include "portfolio.name" . }}
   labels:
-    app: {{ .Release.name }}
+    app: {{ include "portfolio.name" . }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Release.name }}
+      {{- include "portfolio.labels" . | nindent 6 }}
   replicas: 1
   strategy:
     rollingUpdate:
@@ -17,12 +17,12 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/default-container:  {{ .Release.name }}
+        kubectl.kubernetes.io/default-container:  {{ include "portfolio.name" . }}
       labels:
-        app: {{ .Release.name }}
+        {{- include "portfolio.labels" . | nindent 8 }}
     spec:
       containers:
-      - name: {{ .Release.name }}
+      - name: {{ include "portfolio.name" . }}
         image: {{ .Values.image }}
         imagePullPolicy: Always
         resources:
@@ -42,6 +42,6 @@ spec:
           periodSeconds: 10
         ports:
         - containerPort: 80
-          name: {{ .Release.name }}
+          name: http
       restartPolicy: Always
 
