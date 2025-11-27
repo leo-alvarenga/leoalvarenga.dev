@@ -25,8 +25,15 @@ jobs:
       - name: Read version from package.json
         id: pkg
         run: |
-          echo "VERSION=v$(jq -r .version package.json)" >> $GITHUB_OUTPUT
-          echo "SUFFIX=$(if [[ $GITHUB_REF_NAME = master ]]; then echo ""; else echo "-$GITHUB_REF_NAME"; fi)" >> $GITHUB_OUTPUT
+          STATUS="$GITHUB_REF_NAME"
+          VERSION="v$(jq -r .version package.json)$(if [[ $GITHUB_REF_NAME = "master" ]]; then echo ""; else echo "-$GITHUB_REF_NAME"; fi)"
+
+          if [[ $GITHUB_REF_NAME = "master" ]]; then
+              STATUS="latest"
+          fi
+
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "STATUS_TAG=$STATUS" >> $GITHUB_OUTPUT
 
       - name: Install dependencies
         run: npm ci
@@ -44,7 +51,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:latest${{ steps.pkg.outputs.SUFFIX }}
-            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:${{ github.sha }}${{ steps.pkg.outputs.SUFFIX }}
-            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:${{ steps.pkg.outputs.VERSION }}${{ steps.pkg.outputs.SUFFIX }}
+            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:${{ steps.pkg.outputs.STATUS_TAG }}
+            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/leoalvarenga-dev:${{ steps.pkg.outputs.VERSION }}
 
